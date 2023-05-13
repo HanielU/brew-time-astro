@@ -1,0 +1,104 @@
+---
+import NavSearch from "./NavSearch.astro";
+import logo from "~/assets/images/logo.png";
+
+const links = [
+  { name: "Menu", path: "/menu" },
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" },
+];
+---
+
+<div id="header-dummy" class="w-full abs top-0" style="height: 1px;"></div>
+<header class="fixed top-0 left-0 z-99 w-full">
+  <div
+    id="nav-header"
+    class="bg-transparent pt px-5 mb-3 transition-backdrop-filter-250 md-(px-8 pt-8)"
+  >
+    <div class="nav max-w-7xl mx-a flex-s-between pb b-b-(1 white)">
+      <!-- IMAGE WRAPPER -->
+      <div class="h-40px mr-50">
+        <img class="h-full" src={logo} alt="" />
+      </div>
+
+      <div class="hidden lg-flex-(1 s-between)">
+        <NavSearch />
+
+        <div class="flex-s-center gap-4 font-inter">
+          <div class="square-40px bg-#1E1E1E6B flex-s-center br-full relative">
+            <div class="i-mingcute-shopping-cart-1-line"></div>
+            <span
+              class="absolute top--20% right--10% bg-primary square-16px flex-s-center br-full text-xs"
+              >3</span
+            >
+          </div>
+          <div class="square-40px bg-#1E1E1E6B flex-s-center br-full relative">
+            <div class="i-tabler-user"></div>
+          </div>
+          <div class="square-40px bg-#1E1E1E6B flex-s-center br-full relative">
+            <div class="i-material-symbols-favorite-outline"></div>
+            <span
+              class="absolute top--20% right--10% bg-primary square-16px flex-s-center br-full text-xs"
+              >3</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- MOBILE MENU BTN -->
+      <button class="md:hidden">
+        <div class="i-solar-hamburger-menu-linear"></div>
+      </button>
+    </div>
+  </div>
+
+  <!--  -->
+  <nav
+    class="hidden lg-flex-s-start gap-8 font-(inter semibold) max-w-7xl mx-a"
+  >
+    {
+      links.map(link => (
+        // NAV LINK
+        <a class="py-2 hover-underline" href={link.path}>
+          {link.name}
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<script>
+  const header = document.querySelector("#nav-header")!;
+  const nav = header.querySelector(".nav")!;
+  const dummyDiv = document.querySelector<HTMLDivElement>("#header-dummy")!;
+
+  // Create a function which will be called when intersection changes
+  const callback: IntersectionObserverCallback = entries => {
+    entries.forEach(entry => {
+      // When header is not intersecting with dummyDiv (i.e., has been scrolled out of view)
+      if (!entry.isIntersecting) {
+        // Add the blur class
+        header.classList.add("backdrop-blur");
+        header.classList.add("b-b");
+        header.classList.add("b-b-white");
+
+        nav.classList.remove("b-b-1");
+        nav.classList.remove("b-b-white");
+      } else {
+        // Remove the blur class
+        header.classList.remove("backdrop-blur");
+        header.classList.remove("b-b");
+        header.classList.remove("b-b-white");
+
+        nav.classList.add("b-b-1");
+        nav.classList.add("b-b-white");
+      }
+    });
+  };
+
+  // Set up the Intersection Observer
+  let observer = new IntersectionObserver(callback);
+
+  // Start observing the dummyDiv
+  observer.observe(dummyDiv);
+</script>

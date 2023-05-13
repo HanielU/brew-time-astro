@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "astro-build.astro-vscode",
+    "svelte.svelte-vscode",
+    "antfu.unocss",
+    "dbaeumer.vscode-eslint",
+    "usernamehw.errorlens"
+  ],
+  "unwantedRecommendations": []
+}

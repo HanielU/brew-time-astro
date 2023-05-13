@@ -1,0 +1,39 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import CoffeeList from "~/components/coffee-list/CoffeeList.astro";
+import HeroTransition from "~/components/landing/HeroTransition.astro";
+import Hero from "~/components/landing/Hero.astro";
+
+import coffee1 from "~/assets/images/coffee1.png";
+import coffee2 from "~/assets/images/coffee2.png";
+// import coffee3 from "~/assets/images/coffee3.png";
+---
+
+<Layout title="Home page">
+  <Hero />
+  <HeroTransition />
+
+  <CoffeeList
+    legend="Exclusive Coffee"
+    data={[
+      {
+        img: coffee1,
+        title: "Americano",
+        description: "Lorem ipsum dolor sit amet, margin and padding. ",
+        price: "19.00",
+      },
+      {
+        img: coffee2,
+        title: "Americano",
+        description: "Lorem ipsum dolor sit amet, margin and padding. ",
+        price: "20.00",
+      },
+      {
+        img: coffee1,
+        title: "Americano",
+        description: "Lorem ipsum dolor sit amet, margin and padding. ",
+        price: "15.00",
+      },
+    ]}
+  />
+</Layout>

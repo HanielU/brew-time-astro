@@ -1,0 +1,54 @@
+---
+import heroBgImg from "~/assets/images/hero-bg.jpg";
+---
+
+<section
+  class:list={[
+    "bg-(cover center) pt-36 pb-28 text-center relative z-1 lg-py-50",
+    "grad",
+    "after:(content-empty abs top-0 left-0 square-full z--1)",
+  ]}
+  style={`background-image: url(${heroBgImg});`}
+>
+  <div>
+    <!-- Main Title -->
+    <h1
+      class="relative mb-16 text-5xl max-w-14ch mx-a sm-text-6xl md-(text-7xl max-w-18ch mb) lg-text-8xl"
+    >
+      <span class="fw-medium">Savor the moment with every sip</span>
+
+      <div class="i-carbon-quotes abs top--10% left-0 text-2xl lg-text-4xl">
+      </div>
+      <div
+        class="i-carbon-quotes abs bottom-0 right-0 rotate-180 text-2xl md-right-10% lg-text-4xl"
+      >
+      </div>
+    </h1>
+
+    <!-- Subtitle -->
+    <p
+      class="text-#938E8E max-w-26ch mx-a mb-6 font-(poppins medium) md-max-w-none lg-text-lg"
+    >
+      Discover our carefully crafted coffee blends, made with love and passion
+    </p>
+
+    <!-- CTA -->
+    <div class="flex-s-center gap-5 font-(inter semibold) text-sm md-text-base">
+      <a class="bg-light text-dark br-lg py-2 px-6" href="/">About</a>
+      <a class="bg-primary text-light br-lg py-2 px-6" href="/">Order Now</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .grad::after {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(16, 16, 17, 0.8) 60%,
+      rgba(16, 16, 17, 0.9) 70%,
+      rgba(16, 16, 17, 1) 100%
+    );
+  }
+</style>
