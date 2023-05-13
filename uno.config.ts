@@ -30,7 +30,20 @@ export default defineConfig({
 
   rules: [],
 
-  shortcuts: [],
+  shortcuts: [
+    [/^area-(.*)$/, ([, v]) => `[grid-area:_${v}]`, { layer: "default" }],
+    [
+      /^gta-(.*)$/,
+      ([, v]) =>
+        `[grid-template-areas:_${v
+          ?.replace(/-/g, "_")
+          .replace(/\|/g, " ")
+          .split(" ")
+          .map(v => '"' + v + '"')
+          .join("_")}]`,
+      { layer: "default" },
+    ],
+  ],
 
   variants: [],
 
@@ -66,7 +79,7 @@ export default defineConfig({
         },
         inter: {
           name: "Inter",
-          weights: ["400", "500", "600", "700", "800", "900"],
+          weights: ["300", "400", "500", "600", "700", "800", "900"],
         },
       },
     }),

@@ -1,12 +1,14 @@
 ---
 import Layout from "~/layouts/Layout.astro";
+import Partners from "~/components/landing/Partners.astro";
+import FAQ from "~/components/landing/FAQ.astro";
+import CustomerStats from "~/components/landing/CustomerStats.astro";
 import CoffeeList from "~/components/coffee-list/CoffeeList.astro";
 import HeroTransition from "~/components/landing/HeroTransition.astro";
 import Hero from "~/components/landing/Hero.astro";
 
 import coffee1 from "~/assets/images/coffee1.png";
 import coffee2 from "~/assets/images/coffee2.png";
-// import coffee3 from "~/assets/images/coffee3.png";
 ---
 
 <Layout title="Home page">
@@ -14,6 +16,7 @@ import coffee2 from "~/assets/images/coffee2.png";
   <HeroTransition />
 
   <CoffeeList
+    showCTA
     legend="Exclusive Coffee"
     data={[
       {
@@ -36,4 +39,8 @@ import coffee2 from "~/assets/images/coffee2.png";
       },
     ]}
   />
+
+  <CustomerStats />
+  <Partners />
+  <FAQ />
 </Layout>

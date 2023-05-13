@@ -4,16 +4,16 @@ import heroBgImg from "~/assets/images/hero-bg.jpg";
 
 <section
   class:list={[
-    "bg-(cover center) pt-36 pb-28 text-center relative z-1 lg-py-50",
+    "bg-(cover center) text-center relative z-1",
     "grad",
     "after:(content-empty abs top-0 left-0 square-full z--1)",
   ]}
   style={`background-image: url(${heroBgImg});`}
 >
-  <div>
+  <div class="py-36 lg-py-50">
     <!-- Main Title -->
     <h1
-      class="relative mb-16 text-5xl max-w-14ch mx-a sm-text-6xl md-(text-7xl max-w-18ch mb) lg-text-8xl"
+      class="relative mb-10 text-5xl max-w-14ch mx-a sm-text-6xl md-(text-7xl max-w-18ch mb) lg-text-8xl"
     >
       <span class="fw-medium">Savor the moment with every sip</span>
 
@@ -33,10 +33,10 @@ import heroBgImg from "~/assets/images/hero-bg.jpg";
     </p>
 
     <!-- CTA -->
-    <div class="flex-s-center gap-5 font-(inter semibold) text-sm md-text-base">
-      <a class="bg-light text-dark br-lg py-2 px-6" href="/">About</a>
-      <a class="bg-primary text-light br-lg py-2 px-6" href="/">Order Now</a>
-    </div>
+    <a
+      class="inline-block mx-a bg-primary text-(sm light) font-(inter semibold) br-lg py-2 px-6 md-text-base"
+      href="/">Order Now</a
+    >
   </div>
 </section>
 

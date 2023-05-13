@@ -1,0 +1,52 @@
+---
+import coffeeSplash from "~/assets/images/coffee-splash.png";
+
+const stats = [
+  { count: "500+", description: "Over 500 cups brewed daily" },
+  {
+    count: "1000+",
+    description: "Join our community of 1000+ daily customers",
+  },
+  {
+    count: "5",
+    description: "Visit one of our 5 convenient locations across the city",
+  },
+];
+---
+
+<section class="px-5 md-px-8">
+  <div
+    class="py-20 mx-a max-w-7xl grid-cols-2 gap-5 md-(grid py-36) md-gta-one-one|three-two lg-gta-one-two|three-two"
+  >
+    <!-- STAT NUMBERS AND DESCRIPTION -->
+    <div class="text-center area-one md-flex-s-between-baseline">
+      <!-- STAT CARD -->
+      {
+        stats.map((stat) => (
+          <div class="not-last-mb-10">
+            <h2 class="text-(5xl primary) font-(outfit semibold) mb-5">
+              {stat.count}
+            </h2>
+            <p class="text-#979797 font-poppins max-w-17ch mx-a">
+              {stat.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- COFFEE IMAGE WRAPPER -->
+    <div class="my-12 flex-s-center area-two md-(h-300px my-0) lg-h-400px">
+      <img class="h-full" src={coffeeSplash} alt="" />
+    </div>
+
+    <p class="text-xl area-three self-center md-text-2xl lg-text-3xl">
+      Join our community of coffee lovers and enjoy over 500 cups brewed daily
+      by our expert baristas. With 5 convenient locations across the city, it's
+      easy to savor our rich, full-bodied blends and friendly service. Trust our
+      <span class="text-primary">passionate team</span> to deliver <span
+        class="text-primary">the perfect cup</span
+      > every time.
+    </p>
+  </div>
+</section>

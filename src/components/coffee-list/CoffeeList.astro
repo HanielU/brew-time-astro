@@ -3,9 +3,10 @@ export interface Props {
   /** The Legend of the section */
   legend: string;
   data: { img: string; title: string; description: string; price: string }[];
+  showCTA?: boolean;
 }
 
-const { legend, data } = Astro.props;
+const { legend, data, showCTA = false } = Astro.props;
 
 import CoffeListCard from "./CoffeListCard.astro";
 ---
@@ -28,19 +29,31 @@ import CoffeListCard from "./CoffeListCard.astro";
   </div>
 
   <!-- SECTION CONTENT -->
-  <div class="splide py-20">
-    <div class="splide__track">
-      <ul class="splide__list max-w-7xl lg-mx-a!">
-        {
-          data.map(({ img, title, description, price }) => (
-            <li class="splide__slide">
-              <CoffeListCard {img} {title} {description} {price} />
-            </li>
-          ))
-        }
-      </ul>
+  <div class="py-12">
+    <div class="splide">
+      <div class="splide__track">
+        <ul class="splide__list max-w-7xl lg-mx-a!">
+          {
+            data.map(({ img, title, description, price }) => (
+              <li class="splide__slide">
+                <CoffeListCard {img} {title} {description} {price} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
   </div>
+
+  <!-- SECTION CTA -->
+  <a
+    class:list={[
+      "absolute left-50% bottom-0 translate-(x--50% y-50%)",
+      "bg-primary px-5 py-2 font-poppins br-lg",
+      showCTA ? "block" : "hidden",
+    ]}
+    href="/menu">Menu</a
+  >
 </section>
 
 <script>
