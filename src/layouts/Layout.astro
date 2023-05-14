@@ -5,6 +5,7 @@ export interface Props {
 const { title } = Astro.props as Props;
 
 import TheNav from "../components/navigation/TheNav.astro";
+import TheFooter from "../components/navigation/TheFooter.astro";
 ---
 
 <!DOCTYPE html>
@@ -14,6 +15,9 @@ import TheNav from "../components/navigation/TheNav.astro";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="author" content="Haniel Ubogu" />
+    <meta name="theme-color" content="#101011" />
+
     <title>{title}</title>
   </head>
   <body>
@@ -23,6 +27,8 @@ import TheNav from "../components/navigation/TheNav.astro";
       <div class="relative">
         <slot />
       </div>
+
+      <TheFooter />
     </div>
   </body>
 </html>

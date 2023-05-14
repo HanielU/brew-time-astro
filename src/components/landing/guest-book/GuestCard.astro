@@ -1,0 +1,42 @@
+---
+export interface Props {
+  name: string;
+  job: string;
+  avatar: string;
+  message: string;
+}
+
+const { name, job, avatar, message } = Astro.props;
+---
+
+<div
+  class:list={[
+    "[li.is-active>&]-bg-white hover-bg-white relative [&>*,&_*]-transition-250",
+    "font-poppins px-6 pt-5 pb-10 br-xl text-center",
+  ]}
+>
+  {/* ICON WRAPPER */}
+  <div>
+    <div
+      class="i-carbon-quotes mx-a text-(4xl white) [li.is-active_&]-text-black"
+    >
+    </div>
+  </div>
+
+  {/* MESSAGE WRAPPER */}
+  <p class="text-(sm #938E8E) [li.is-active_&]-md-text-base my-5">
+    {message}
+  </p>
+
+  {/* AVATAR WRAPPER */}
+  <div class="abs left-50% bottom-0 translate-(x--50% y-50%)">
+    <div class="overflow-hidden h-60px br-full">
+      <img class="h-full" src={avatar} alt="" />
+    </div>
+
+    <div class="abs left-50% translate-x--50% op-30 [li.is-active_&]-op-100">
+      <div class="w-max mx-a">{name}</div>
+      <div class="text-sm">{job}</div>
+    </div>
+  </div>
+</div>

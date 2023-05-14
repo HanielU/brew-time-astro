@@ -16,7 +16,7 @@ const links = [
     class="bg-transparent pt px-5 mb-3 transition-backdrop-filter-250 md-(px-8 pt-8)"
   >
     <div class="nav max-w-7xl mx-a flex-s-between pb b-b-(1 white)">
-      <!-- IMAGE WRAPPER -->
+      {/* IMAGE WRAPPER */}
       <div class="h-40px mr-50">
         <img class="h-full" src={logo} alt="" />
       </div>
@@ -28,7 +28,7 @@ const links = [
           <div class="square-40px bg-#1E1E1E6B flex-s-center br-full relative">
             <div class="i-mingcute-shopping-cart-1-line"></div>
             <span
-              class="absolute top--20% right--10% bg-primary square-16px flex-s-center br-full text-xs"
+              class="abs top--20% right--10% bg-primary square-16px flex-s-center br-full text-xs"
               >3</span
             >
           </div>
@@ -38,14 +38,14 @@ const links = [
           <div class="square-40px bg-#1E1E1E6B flex-s-center br-full relative">
             <div class="i-material-symbols-favorite-outline"></div>
             <span
-              class="absolute top--20% right--10% bg-primary square-16px flex-s-center br-full text-xs"
+              class="abs top--20% right--10% bg-primary square-16px flex-s-center br-full text-xs"
               >3</span
             >
           </div>
         </div>
       </div>
 
-      <!-- MOBILE MENU BTN -->
+      {/* MOBILE MENU BTN */}
       <button class="md:hidden">
         <div class="i-solar-hamburger-menu-linear"></div>
       </button>
@@ -57,7 +57,7 @@ const links = [
     class="hidden lg-flex-s-start gap-8 font-(inter semibold) max-w-7xl mx-a"
   >
     {
-      links.map(link => (
+      links.map((link) => (
         // NAV LINK
         <a class="py-2 hover-underline" href={link.path}>
           {link.name}
@@ -73,8 +73,8 @@ const links = [
   const dummyDiv = document.querySelector<HTMLDivElement>("#header-dummy")!;
 
   // Create a function which will be called when intersection changes
-  const callback: IntersectionObserverCallback = entries => {
-    entries.forEach(entry => {
+  const callback: IntersectionObserverCallback = (entries) => {
+    entries.forEach((entry) => {
       // When header is not intersecting with dummyDiv (i.e., has been scrolled out of view)
       if (!entry.isIntersecting) {
         // Add the blur class

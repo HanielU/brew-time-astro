@@ -4,33 +4,26 @@ export interface Props {
   legend: string;
   data: { img: string; title: string; description: string; price: string }[];
   showCTA?: boolean;
+  id: string;
 }
 
-const { legend, data, showCTA = false } = Astro.props;
+const { legend, data, showCTA = false, id } = Astro.props;
 
 import CoffeListCard from "./CoffeListCard.astro";
+import SectionLegend from "~/components/SectionLegend.astro";
 ---
 
-<section class="bg-#191919 relative z-1">
-  <!-- SECTION LEGEND -->
-  <div class="abs top-0 translate-y--50% left-0 w-full">
-    <h1
-      class:list={[
-        "text-3xl relative w-max mx-a md-text-4xl lg-text-5xl",
-        "before:(content-empty abs top-50% translate-y--1/2)",
-        "before:(right-105% w-50px h-2px bg-#fff z-0 md-w-80px)",
+<astro-splide data-id={id}></astro-splide>
 
-        "after:(content-empty abs top-50% translate-y--1/2)",
-        "after:(left-105% w-50px h-2px bg-#fff z-0 md-w-80px)",
-      ]}
-    >
-      {legend}
-    </h1>
-  </div>
-
-  <!-- SECTION CONTENT -->
+<div class="relative z-1">
+  <SectionLegend>
+    {legend}
+  </SectionLegend>
+</div>
+<section class="bg-#191919 relative">
+  {/* SECTION CONTENT */}
   <div class="py-12">
-    <div class="splide">
+    <div id={id} class="splide">
       <div class="splide__track">
         <ul class="splide__list max-w-7xl lg-mx-a!">
           {
@@ -45,10 +38,10 @@ import CoffeListCard from "./CoffeListCard.astro";
     </div>
   </div>
 
-  <!-- SECTION CTA -->
+  {/* SECTION CTA */}
   <a
     class:list={[
-      "absolute left-50% bottom-0 translate-(x--50% y-50%)",
+      "abs left-50% bottom-0 translate-(x--50% y-50%)",
       "bg-primary px-5 py-2 font-poppins br-lg",
       showCTA ? "block" : "hidden",
     ]}
@@ -57,6 +50,17 @@ import CoffeListCard from "./CoffeListCard.astro";
 </section>
 
 <script>
+  let id = "";
+  class AstroSplide extends HTMLElement {
+    constructor() {
+      super();
+
+      // Read the id from the data attribute.
+      id = "#" + this.dataset.id!;
+    }
+  }
+  customElements.define("astro-splide", AstroSplide);
+
   import "@splidejs/splide/css";
   // or other themes
   // import "@splidejs/splide/css/skyblue";
@@ -67,7 +71,7 @@ import CoffeListCard from "./CoffeListCard.astro";
 
   import Splide from "@splidejs/splide";
 
-  new Splide(".splide", {
+  new Splide(id, {
     mediaQuery: "min",
     perPage: 1,
     breakpoints: {

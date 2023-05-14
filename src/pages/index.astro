@@ -1,5 +1,6 @@
 ---
 import Layout from "~/layouts/Layout.astro";
+import GuestBook from "~/components/landing/guest-book/GuestBook.astro";
 import Partners from "~/components/landing/Partners.astro";
 import FAQ from "~/components/landing/FAQ.astro";
 import CustomerStats from "~/components/landing/CustomerStats.astro";
@@ -11,11 +12,12 @@ import coffee1 from "~/assets/images/coffee1.png";
 import coffee2 from "~/assets/images/coffee2.png";
 ---
 
-<Layout title="Home page">
+<Layout title="Brew Time">
   <Hero />
   <HeroTransition />
 
   <CoffeeList
+    id="exclusive-coffee"
     showCTA
     legend="Exclusive Coffee"
     data={[
@@ -43,4 +45,5 @@ import coffee2 from "~/assets/images/coffee2.png";
   <CustomerStats />
   <Partners />
   <FAQ />
+  <GuestBook />
 </Layout>
