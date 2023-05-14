@@ -89,3 +89,19 @@ import SectionLegend from "~/components/SectionLegend.astro";
     },
   }).mount();
 </script>
+
+<style is:global>
+  .splide__pagination__page.is-active {
+    background: rgb(211, 173, 127);
+    transform: none;
+  }
+
+  .splide__pagination__page {
+    background: #fff;
+    width: 45px;
+  }
+
+  .splide__arrow svg {
+    fill: rgb(211, 173, 127);
+  }
+</style>
