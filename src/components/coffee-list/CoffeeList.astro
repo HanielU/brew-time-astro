@@ -23,7 +23,7 @@ import SectionLegend from "~/components/SectionLegend.astro";
 <section class="bg-#191919 relative">
   {/* SECTION CONTENT */}
   <div class="py-12">
-    <div id={id} class="splide">
+    <div id={id} class="splide px-6">
       <div class="splide__track">
         <ul class="splide__list max-w-7xl lg-mx-a!">
           {
@@ -74,15 +74,17 @@ import SectionLegend from "~/components/SectionLegend.astro";
   new Splide(id, {
     mediaQuery: "min",
     perPage: 1,
+    arrows: false,
     breakpoints: {
       768: {
+        arrows: true,
         perPage: 2,
         gap: "20px",
       },
       1024: {
+        arrows: false,
         perPage: 3,
         gap: "40px",
-        arrows: false,
         drag: false,
         pagination: false,
       },

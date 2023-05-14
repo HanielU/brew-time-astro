@@ -53,11 +53,6 @@ export default defineConfig({
         :root {
           -webkit-tap-highlight-color: transparent;
         }
-
-        body {
-          position: relative;
-          overflow-x: hidden;
-        }
       `,
     },
   ],

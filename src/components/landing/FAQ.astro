@@ -31,7 +31,7 @@ const faq = [
         Frequently Asked Questions
       </h2>
       <p
-        class="font-inter text-15px/1.5rem lh-relaxed max-w-65ch mx-a lg-text-lg"
+        class="font-(inter light) text-15px/1.5rem lh-relaxed max-w-65ch mx-a lg-text-lg"
       >
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -59,13 +59,19 @@ const faq = [
       }
     </div>
 
-    {/* CTA */}
-    <a
-      class:list={[
-        "bg-primary text-(sm light) font-(inter semibold)",
-        "block w-max mx-a br-lg py-2 px-6 md-text-base",
-      ]}
-      href="/">Order Now</a
-    >
+    {
+      /* Apparently, text-center is used to center 
+      inline-level elements horizontally */
+    }
+    <div class="text-center">
+      {/* CTA */}
+      <a
+        class:list={[
+          "bg-primary text-(sm light) font-(inter semibold)",
+          "br-lg py-2 px-6 md-text-base",
+        ]}
+        href="/">Order Now</a
+      >
+    </div>
   </div>
 </section>

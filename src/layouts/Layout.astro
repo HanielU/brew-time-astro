@@ -1,11 +1,12 @@
 ---
 export interface Props {
   title: string;
+  bannerUrl: string;
 }
-const { title } = Astro.props as Props;
+const { bannerUrl, title } = Astro.props as Props;
 
-import TheNav from "../components/navigation/TheNav.astro";
-import TheFooter from "../components/navigation/TheFooter.astro";
+import TheNav from "~/components/navigation/TheNav.astro";
+import TheFooter from "~/components/navigation/TheFooter.astro";
 ---
 
 <!DOCTYPE html>
@@ -17,11 +18,16 @@ import TheFooter from "../components/navigation/TheFooter.astro";
     <meta name="generator" content={Astro.generator} />
     <meta name="author" content="Haniel Ubogu" />
     <meta name="theme-color" content="#101011" />
-
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={bannerUrl} />
     <title>{title}</title>
   </head>
   <body>
-    <div id="app" class="relative font-bebas text-white bg-dark">
+    <div
+      id="app"
+      class="relative font-bebas text-white bg-dark overflow-x-hidden"
+    >
       <TheNav />
 
       <div class="relative">

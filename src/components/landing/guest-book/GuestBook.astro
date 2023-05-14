@@ -33,13 +33,13 @@ const data = [
 <section class="relative">
   <SectionLegend>Our GuestBook</SectionLegend>
 
-  <div class="py-10 max-w-7xl mx-a">
+  <div class="py max-w-7xl mx-a md-py-8">
     <div id="guest-book" class="splide px-8">
       <div class="splide__track">
         <ul class="splide__list">
           {
             data.map((v) => (
-              <li class="splide__slide mb-30">
+              <li class="splide__slide mb-20">
                 <GuestCard {...v} />
               </li>
             ))
