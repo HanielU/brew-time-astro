@@ -10,11 +10,12 @@ import Hero from "~/components/landing/LandingHero.astro";
 
 import coffee1 from "~/assets/images/coffee1.png";
 import coffee2 from "~/assets/images/coffee2.png";
+import { getGoogleLink } from "~/utils";
 ---
 
 <Layout
   title="Home | Brew Time"
-  bannerUrl="https://drive.google.com/uc?export=view&id=1dUfMEU7xRLS6OwvbBGDgAMglsN08EA-C"
+  bannerUrl={getGoogleLink("1dUfMEU7xRLS6OwvbBGDgAMglsN08EA-C")}
 >
   <Hero />
   <HeroTransition />

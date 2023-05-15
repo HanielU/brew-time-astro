@@ -39,16 +39,16 @@ const faq = [
       </p>
     </div>
 
-    <div class="px-8 mb-16 flex-s-center flex-wrap gap-x-5 gap-y-8">
+    <div class="px-8 mb-16 flex-s-between flex-wrap gap-x-5 gap-y-8">
       {
         faq.map(({ icon, question, desc }) => (
-          <div class="not-last-(mb-10 md-mb-0 lg-(b-r-(1 white) pr-5)) flex-1 basis-200px max-w-max">
+          <div class="not-last-(mb-10 md-mb-0 lg-(b-r-(1 white) pr-5)) flex-1 basis-250px max-w-max">
             <div class="flex-s-start gap-2 text-4xl">
               <div class:list={[icon, "text-primary"]} />
               <span>{question}</span>
             </div>
 
-            <p class="font-inter my-2 max-w-26ch">{desc}</p>
+            <p class="font-(inter light) my-2 max-w-26ch">{desc}</p>
 
             <div class="font-(inter semibold) flex-s-start gap-2 text-primary">
               See all

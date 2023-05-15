@@ -13,12 +13,12 @@ import grainImg from "~/assets/images/hero-bg-grain-1.png";
 <section
   class:list={[
     "bg-(cover center) text-center relative z-1 overflow-hidden",
-    "after:(content-empty abs top-0 left-0 square-full z--1)",
+    "after-(content-empty abs top-0 left-0 square-full z--1)",
     className,
   ]}
   style={`background-image: url(${heroBgImg});`}
 >
-  <div class="py-36 lg-py-50">
+  <div class="py-36 md-py-50">
     <slot />
   </div>
 

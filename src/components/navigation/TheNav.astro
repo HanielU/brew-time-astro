@@ -9,13 +9,55 @@ const links = [
 ];
 ---
 
+<script>
+  import { toggleClass as tc } from "~/utils";
+
+  const header = document.querySelector<HTMLElement>("#nav-header")!;
+  const navBtns = document.querySelectorAll<HTMLButtonElement>(".nav-btn")!;
+  const navMenu = document.querySelector<HTMLDivElement>(".nav-menu")!;
+  const underheader = document.querySelector<HTMLDivElement>(".underheader")!;
+  const dummyDiv = document.querySelector<HTMLDivElement>("#header-dummy")!;
+
+  // Create a function which will be called when intersection changes
+  const callback: IntersectionObserverCallback = (entries) => {
+    entries.forEach((entry) => {
+      // When header is not intersecting with dummyDiv
+      // (i.e., has been scrolled out of view)
+      if (!entry.isIntersecting) {
+        // Add the blur class
+        tc(underheader, "backdrop-blur");
+        tc(header, "backdrop-blur b-b b-b-white/20");
+        tc(header, "b-b-1 b-b-white/80");
+      } else {
+        // Remove the blur class
+        tc(underheader, "backdrop-blur");
+        tc(header, "b-b-1 b-b-white/80");
+        tc(header, "backdrop-blur b-b b-b-white/20");
+      }
+    });
+  };
+
+  // Set up the Intersection Observer
+  const observer = new IntersectionObserver(callback);
+
+  // Start observing the dummyDiv
+  observer.observe(dummyDiv);
+
+  navBtns.forEach((btn) =>
+    btn.addEventListener("click", () => {
+      tc(navMenu, "op-0 pointer-events-none");
+      tc(document.body, "overflow-hidden");
+    })
+  );
+</script>
+
 <div id="header-dummy" class="w-full abs top-0" style="height: 1px;"></div>
-<header class="fixed top-0 left-0 z-99 px-5 md-px-8 w-full">
+<header class="fixed top-0 left-0 z-99 w-full">
   <div
     id="nav-header"
-    class="bg-transparent pt mb-3 transition-backdrop-filter-250 md-pt-8"
+    class="bg-transparent pt px-5 mb-3 transition-250 b-b-(1 white/80) md-(pt-8 px-8)"
   >
-    <div class="nav max-w-7xl mx-a flex-s-between pb b-b-(1 white)">
+    <div class="nav max-w-7xl mx-a flex-s-between pb">
       {/* IMAGE WRAPPER */}
       <a href="/" class="block h-40px md-mr-20 lg-mr-50">
         <img class="h-full" src={logo} alt="" />
@@ -33,7 +75,10 @@ const links = [
             >
           </div>
           <div class="square-40px bg-#1E1E1E6B flex-s-center br-full relative">
-            <div class="i-tabler-user"></div>
+            <a
+              href="https://github.com/HanielU/brew-time-astro"
+              target="_blank"
+              class="i-codicon-github"></a>
           </div>
           <div class="square-40px bg-#1E1E1E6B flex-s-center br-full relative">
             <div class="i-material-symbols-favorite-outline"></div>
@@ -46,59 +91,123 @@ const links = [
       </div>
 
       {/* MOBILE MENU BTN */}
-      <button class="md:hidden">
-        <div class="i-solar-hamburger-menu-linear"></div>
+      <button class="nav-btn md:hidden">
+        <div class="text-xl i-solar-hamburger-menu-linear"></div>
       </button>
     </div>
   </div>
 
-  <!--  -->
-  <nav
-    class="hidden md-flex-s-start gap-8 font-(inter semibold) max-w-7xl mx-a"
-  >
-    {
-      links.map((link) => (
-        // NAV LINK
-        <a class="py-2 hover-underline" href={link.path}>
-          {link.name}
-        </a>
-      ))
-    }
-  </nav>
+  <div class="px-1 md-px">
+    <div class="mx-a max-w-[calc(80rem+32px)]">
+      <nav
+        class:list={[
+          "underheader px-4 br-lg hidden font-(inter semibold)",
+          "gap-8 max-w-7xl mx-a md-(flex-s-start inline-flex)",
+        ]}
+      >
+        {
+          links.map((link) => (
+            // NAV LINK
+            <a
+              class:list={[
+                "py-2 hover-underline relative",
+                Astro.url.pathname == link.path && [
+                  "after-(content-empty h-3px bg-primary abs bottom-4px left-0 w-full)",
+                  "px-2px",
+                ],
+              ]}
+              href={link.path}
+            >
+              {link.name}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </div>
 </header>
 
-<script>
-  const header = document.querySelector("#nav-header")!;
-  const nav = header.querySelector(".nav")!;
-  const dummyDiv = document.querySelector<HTMLDivElement>("#header-dummy")!;
+{/* MOBILE NAV MENU */}
+<div
+  class:list={[
+    "fixed top-0 left-0 z-100 square-full backdrop-blur",
+    "gradient nav-menu op-0 pointer-events-none transition-opacity-250",
+  ]}
+>
+  <div class="w-full h-full abs top-0 left-0 z-100 overflow-y-auto">
+    <div class="max-w-7xl mx-a">
+      <div class="flex-s-between pt pb-5 px-5">
+        <a href="/" class="block h-40px mr-20">
+          <img class="h-full" src={logo} alt="" />
+        </a>
 
-  // Create a function which will be called when intersection changes
-  const callback: IntersectionObserverCallback = (entries) => {
-    entries.forEach((entry) => {
-      // When header is not intersecting with dummyDiv (i.e., has been scrolled out of view)
-      if (!entry.isIntersecting) {
-        // Add the blur class
-        header.classList.add("backdrop-blur");
-        header.classList.add("b-b");
-        header.classList.add("b-b-white");
+        <button class="nav-btn">
+          <div class="text-xl i-radix-icons-cross-1"></div>
+        </button>
+      </div>
 
-        nav.classList.remove("b-b-1");
-        nav.classList.remove("b-b-white");
-      } else {
-        // Remove the blur class
-        header.classList.remove("backdrop-blur");
-        header.classList.remove("b-b");
-        header.classList.remove("b-b-white");
+      <nav class="font-inter">
+        <div class="flex-s-between flex-col gap-8">
+          {
+            links.map((link) => (
+              // NAV LINK
+              <a
+                class:list={[
+                  "py-2 hover-underline relative",
+                  Astro.url.pathname == link.path && [
+                    "after-(content-empty h-3px bg-primary abs bottom-4px left-0 w-full)",
+                    "px-2px",
+                  ],
+                ]}
+                href={link.path}
+              >
+                {link.name}
+              </a>
+            ))
+          }
 
-        nav.classList.add("b-b-1");
-        nav.classList.add("b-b-white");
-      }
-    });
-  };
+          <div class="flex-s-center gap-4 font-inter">
+            <div
+              class="square-40px bg-#1E1E1E6B flex-s-center br-full relative"
+            >
+              <div class="i-mingcute-shopping-cart-1-line"></div>
+              <span
+                class="abs top--20% right--10% bg-primary square-16px flex-s-center br-full text-xs"
+                >3</span
+              >
+            </div>
+            <div
+              class="square-40px bg-#1E1E1E6B flex-s-center br-full relative"
+            >
+              <a
+                href="https://github.com/HanielU/brew-time-astro"
+                target="_blank"
+                class="i-codicon-github"></a>
+            </div>
+            <div
+              class="square-40px bg-#1E1E1E6B flex-s-center br-full relative"
+            >
+              <div class="i-material-symbols-favorite-outline"></div>
+              <span
+                class="abs top--20% right--10% bg-primary square-16px flex-s-center br-full text-xs"
+                >3</span
+              >
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
 
-  // Set up the Intersection Observer
-  let observer = new IntersectionObserver(callback);
-
-  // Start observing the dummyDiv
-  observer.observe(dummyDiv);
-</script>
+<style>
+  .gradient {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      180deg,
+      rgba(16, 16, 17, 0.8) 0%,
+      rgba(16, 16, 17, 0.7) 50%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+  }
+</style>
