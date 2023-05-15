@@ -25,7 +25,7 @@ import SectionLegend from "~/components/SectionLegend.astro";
   <div class="py-12">
     <div id={id} class="splide px-6">
       <div class="splide__track">
-        <ul class="splide__list max-w-7xl lg-mx-a!">
+        <ul class="splide__list max-w-7xl">
           {
             data.map(({ img, title, description, price }) => (
               <li class="splide__slide">
@@ -70,6 +70,7 @@ import SectionLegend from "~/components/SectionLegend.astro";
   // import "@splidejs/splide/css/core";
 
   import Splide from "@splidejs/splide";
+  import "~/styles.css";
 
   new Splide(id, {
     mediaQuery: "min",
