@@ -34,12 +34,12 @@ const data = [
   <SectionLegend>Our GuestBook</SectionLegend>
 
   <div class="py max-w-7xl mx-a md-py-8">
-    <div id="guest-book" class="splide px-8">
+    <div id="guest-book" class="splide">
       <div class="splide__track">
         <ul class="splide__list">
           {
             data.map((v) => (
-              <li class="splide__slide mb-20">
+              <li class="splide__slide">
                 <GuestCard {...v} />
               </li>
             ))
@@ -52,13 +52,8 @@ const data = [
 
 <script>
   import "@splidejs/splide/css";
-  // or other themes
-  // import "@splidejs/splide/css/skyblue";
   import "@splidejs/splide/css/sea-green";
-
-  // or only core styles
-  // import "@splidejs/splide/css/core";
-
+  import "./guest-book.css";
   import Splide from "@splidejs/splide";
 
   new Splide("#guest-book", {
