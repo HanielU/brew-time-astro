@@ -1,6 +1,11 @@
 ---
 import MenuHero from "./_components/MenuHero.astro";
+import CoffeeMenu from "./_components/CoffeeMenu.astro";
+import CoffeeList from "~/components/coffee-list/CoffeeList.astro";
 import Layout from "~/layouts/Layout.astro";
+
+import coffee1 from "~/assets/images/coffee1.png";
+import coffee2 from "~/assets/images/coffee2.png";
 import { getGoogleLink } from "~/utils";
 ---
 
@@ -9,4 +14,30 @@ import { getGoogleLink } from "~/utils";
   bannerUrl={getGoogleLink("1dUfMEU7xRLS6OwvbBGDgAMglsN08EA-C")}
 >
   <MenuHero />
+  <!-- <CoffeeMenu /> -->
+
+  <CoffeeList
+    id="best-sellers"
+    legend="Best Sellers"
+    data={[
+      {
+        img: coffee1,
+        title: "Americano",
+        description: "Lorem ipsum dolor sit amet, margin and padding. ",
+        price: "19.00",
+      },
+      {
+        img: coffee2,
+        title: "Americano",
+        description: "Lorem ipsum dolor sit amet, margin and padding. ",
+        price: "20.00",
+      },
+      {
+        img: coffee1,
+        title: "Americano",
+        description: "Lorem ipsum dolor sit amet, margin and padding. ",
+        price: "15.00",
+      },
+    ]}
+  />
 </Layout>

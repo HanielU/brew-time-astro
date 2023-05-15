@@ -1,12 +1,14 @@
 ---
 import Layout from "~/layouts/Layout.astro";
-import GuestBook from "~/components/landing/guest-book/GuestBook.astro";
-import Partners from "~/components/landing/Partners.astro";
-import FAQ from "~/components/landing/FAQ.astro";
-import CustomerStats from "~/components/landing/CustomerStats.astro";
+import Location from "./_components/Location.astro";
+import ContactForm from "~/components/ContactForm.astro";
+import GuestBook from "./_components/guest-book/GuestBook.astro";
+import Partners from "./_components/Partners.astro";
+import FAQ from "./_components/FAQ.astro";
+import CustomerStats from "./_components/CustomerStats.astro";
 import CoffeeList from "~/components/coffee-list/CoffeeList.astro";
-import HeroTransition from "~/components/landing/HeroTransition.astro";
-import Hero from "~/components/landing/LandingHero.astro";
+import HeroTransition from "./_components/HeroTransition.astro";
+import Hero from "./_components/LandingHero.astro";
 
 import coffee1 from "~/assets/images/coffee1.png";
 import coffee2 from "~/assets/images/coffee2.png";
@@ -50,4 +52,6 @@ import { getGoogleLink } from "~/utils";
   <Partners />
   <FAQ />
   <GuestBook />
+  <Location />
+  <ContactForm />
 </Layout>

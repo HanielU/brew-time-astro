@@ -1,0 +1,47 @@
+---
+import cn from "clsx";
+const input = cn(
+  "b-(1 #DAE0E6) placeholder-text-#919BA7",
+  "w-full px py-2 flex-1 outline-none bg-transparent",
+  "br-md "
+);
+---
+
+<section class="px-5 lg-px-8">
+  <div class="py-10 mx-a max-w-3xl">
+    {/* SECTION HEADER */}
+    <div class="text-center mb-10">
+      <h2 class="text-(3xl primary) mb-2 lg-text-4xl">Get In Touch</h2>
+      <p class="font-(inter light) lh-1.5rem max-w-65ch mx-a lg-text-lg">
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s,
+      </p>
+    </div>
+
+    {/* FORM */}
+    <form class="flex flex-col gap-5 font-(inter light)">
+      <div class="flex flex-col md-(flex-s-between flex-row) gap-5">
+        <input class={input} type="text" placeholder="Full Name" name="name" />
+        <input class={input} type="text" placeholder="Email" name="email" />
+      </div>
+
+      <textarea
+        class="resize-none bg-transparent w-full br-md p-3 b-(1 #DAE0E6)"
+        name="message"
+        placeholder="Message"
+        rows="5"></textarea>
+    </form>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector("form");
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    console.log(data);
+  });
+</script>
