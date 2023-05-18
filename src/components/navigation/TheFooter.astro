@@ -1,4 +1,91 @@
 ---
+import logo from "~/assets/images/logo.png";
+import footerBg from "~/assets/images/footer-bg.jpg";
+
+const links = [
+  {
+    heading: "Products",
+    links: [
+      { name: "Features", url: "#" },
+      { name: "Solutions", url: "#" },
+      { name: "Integrations", url: "#" },
+      { name: "Enterprise", url: "#" },
+      { name: "Solutions", url: "#" },
+    ],
+  },
+  {
+    heading: "Resources",
+    links: [
+      { name: "Partners", url: "#" },
+      { name: "Community", url: "#" },
+      { name: "Developers", url: "#" },
+      { name: "App", url: "#" },
+      { name: "Blog", url: "#" },
+    ],
+  },
+  {
+    heading: "Why Choose Us",
+    links: [
+      { name: "Channels", url: "#" },
+      { name: "Scale", url: "#" },
+      { name: "Watch the Demo", url: "#" },
+      { name: "Our Competition", url: "#" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { name: "About Us", url: "#" },
+      { name: "News", url: "#" },
+      { name: "Leadership", url: "#" },
+    ],
+  },
+];
 ---
 
-<footer></footer>
+<footer
+  class="px-5 bg-(cover center no-repeat) py-10 md-py-20 md-px-8"
+  style={`background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url(${footerBg})`}
+>
+  <div class="mx-a mb-10 max-w-7xl md-mb-20 lg-flex-s-between">
+    {/* LOGO AND SOCIALS */}
+    <div class="mb-8 flex-[0.5]">
+      <div class="h-80px mb-2 lg-h-100px">
+        <img class="h-full" src={logo} alt="" />
+      </div>
+
+      {/* SOCIALS */}
+      <div class="flex-s-start gap-5">
+        <div class="i-mdi-facebook"></div>
+        <div class="i-mdi-google"></div>
+        <div class="i-mdi-apple"></div>
+        <div class="i-mdi-instagram"></div>
+      </div>
+    </div>
+
+    {/* LINKS */}
+    <div
+      class="flex-1 grid grid-cols-2 justify-between justify-items-center gap-8 md-grid-cols-4"
+    >
+      {
+        links.map(({ heading, links }) => (
+          <div>
+            <h3 class="text-(2xl primary) mb-2 lg-text-3xl">{heading}</h3>
+            <ul class="font-(inter light) text-sm lg-text-base">
+              {links.map(({ name }) => (
+                <li class="not-last-mb-2">
+                  <a href="#">{name}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <p class="font-inter text-(sm center) lg-text-base">
+    © 2023 Haniel Ubogu. All rights reserved
+  </p>
+</footer>

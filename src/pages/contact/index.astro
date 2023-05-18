@@ -1,5 +1,7 @@
 ---
 import ContactHero from "./_components/ContactHero.astro";
+import Location from "../_components/Location.astro";
+import ContactForm from "~/components/ContactForm.astro";
 import Layout from "~/layouts/Layout.astro";
 import { getGoogleLink } from "~/utils";
 ---
@@ -9,4 +11,6 @@ import { getGoogleLink } from "~/utils";
   bannerUrl={getGoogleLink("1dUfMEU7xRLS6OwvbBGDgAMglsN08EA-C")}
 >
   <ContactHero />
+  <Location />
+  <ContactForm />
 </Layout>

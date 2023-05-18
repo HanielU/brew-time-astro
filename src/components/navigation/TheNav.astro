@@ -25,14 +25,14 @@ const links = [
       // (i.e., has been scrolled out of view)
       if (!entry.isIntersecting) {
         // Add the blur class
-        tc(underheader, "backdrop-blur", "add");
-        tc(header, "backdrop-blur b-b-white/20", "add");
-        tc(header, "b-b-white/80", "remove");
+        underheader.classList.add("backdrop-blur");
+        header.classList.add("backdrop-blur", "b-b-white/20");
+        header.classList.remove("b-b-white/80");
       } else {
         // Remove the blur class
-        tc(underheader, "backdrop-blur", "remove");
-        tc(header, "b-b-white/80", "add");
-        tc(header, "backdrop-blur b-b-white/20", "remove");
+        underheader.classList.remove("backdrop-blur");
+        header.classList.remove("backdrop-blur", "b-b-white/20");
+        header.classList.add("b-b-white/80");
       }
     });
   };
