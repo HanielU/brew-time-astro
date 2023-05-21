@@ -1,0 +1,79 @@
+---
+import SectionLegend from "~/components/SectionLegend.astro";
+import menu from "./menu";
+
+// given an array, split it into chunks of size n
+function splitArray<T>(arr: T[], n: number) {
+  let res = [];
+  for (let i = 0; i < arr.length; i += n) {
+    res.push(arr.slice(i, i + n));
+  }
+  return res;
+}
+---
+
+<section class="relative z-1">
+  <SectionLegend>Coffee Menu</SectionLegend>
+
+  <div class="py max-w-7xl mx-a md-py-8">
+    <div id="coffee-menu" class="splide px-8">
+      <div class="splide__track">
+        <ul class="splide__list">
+          {
+            splitArray(menu, 4).map((list) => (
+              <li class="splide__slide mb-20">
+                {list.map(({ img, name, desc, price }) => (
+                  <div class="flex-s-between gap-3 not-last-mb-5">
+                    {/* IMG WRAPPER */}
+                    <div class="square-70px bg-pink br-full overflow-hidden">
+                      <img class="h-full" src={img} alt="" />
+                    </div>
+
+                    {/* ITEM DETAILS */}
+                    <div class="self-stretch flex-(1 s-between) gap-2 font-poppins">
+                      {/* LEFT */}
+                      <div class="h-full">
+                        <h3 class="text-(xl primary) mb-2 fw-semibold">
+                          {name}
+                        </h3>
+                        <p class="text-#938E8E">{desc}</p>
+                      </div>
+
+                      {/* RIGHT */}
+                      <span class="fw-bold text-lg">${price}.00</span>
+                    </div>
+                  </div>
+                ))}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import "@splidejs/splide/css";
+  // or other themes
+  // import "@splidejs/splide/css/skyblue";
+  import "@splidejs/splide/css/sea-green";
+
+  // or only core styles
+  // import "@splidejs/splide/css/core";
+
+  import Splide from "@splidejs/splide";
+
+  new Splide("#coffee-menu", {
+    mediaQuery: "min",
+    perPage: 1,
+    arrows: false,
+    breakpoints: {
+      1024: {
+        perPage: 2,
+        gap: "40px",
+        pagination: false,
+      },
+    },
+  }).mount();
+</script>

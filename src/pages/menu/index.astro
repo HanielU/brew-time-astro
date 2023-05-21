@@ -1,6 +1,6 @@
 ---
 import MenuHero from "./_components/MenuHero.astro";
-// import CoffeeMenu from "./_components/CoffeeMenu.astro";
+import CoffeeMenu from "./_components/CoffeeMenu.astro";
 import CoffeeList from "~/components/coffee-list/CoffeeList.astro";
 import Layout from "~/layouts/Layout.astro";
 
@@ -14,7 +14,7 @@ import { getGoogleLink } from "~/utils";
   bannerUrl={getGoogleLink("1dUfMEU7xRLS6OwvbBGDgAMglsN08EA-C")}
 >
   <MenuHero />
-  <!-- <CoffeeMenu /> -->
+  <CoffeeMenu />
 
   <CoffeeList
     id="best-sellers"
