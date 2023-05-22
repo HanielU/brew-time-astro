@@ -111,7 +111,7 @@ const links = [
             <a
               class:list={[
                 "py-2 hover-underline relative",
-                Astro.url.pathname == link.path && [
+                Astro.url.pathname === link.path + "/" && [
                   "after-(content-empty h-3px bg-primary abs bottom-4px left-0 w-full)",
                   "px-2px",
                 ],
