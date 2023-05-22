@@ -15,11 +15,10 @@ import SectionLegend from "~/components/SectionLegend.astro";
 
 <astro-splide data-id={id}></astro-splide>
 
-<div class="relative z-1">
-  <SectionLegend>
-    {legend}
-  </SectionLegend>
-</div>
+<SectionLegend>
+  {legend}
+</SectionLegend>
+
 <section class="bg-#191919 relative">
   {/* SECTION CONTENT */}
   <div class="py-12">
@@ -63,7 +62,6 @@ import SectionLegend from "~/components/SectionLegend.astro";
 
   import "@splidejs/splide/css";
   import "@splidejs/splide/css/sea-green";
-  import "./coffee-list.css";
   import Splide from "@splidejs/splide";
 
   new Splide(id, {
@@ -86,6 +84,16 @@ import SectionLegend from "~/components/SectionLegend.astro";
     },
   }).mount();
 </script>
+
+<style>
+  .splide__list {
+    @apply max-w-7xl! lg-mx-a!;
+  }
+
+  .splide {
+    @apply px-6!;
+  }
+</style>
 
 <style is:global>
   .splide__pagination__page.is-active {

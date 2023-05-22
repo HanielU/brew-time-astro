@@ -1,4 +1,5 @@
 ---
+import beans from "~/assets/images/contact-form-beans.png";
 import cn from "clsx";
 const input = cn(
   "b-(1 #DAE0E6) placeholder-text-#919BA7",
@@ -7,8 +8,8 @@ const input = cn(
 );
 ---
 
-<section class="px-5 lg-px-8">
-  <div class="py-10 mx-a max-w-3xl md-py-20">
+<section class="relative px-5 lg-px-8">
+  <div class="relative z-1 py-10 mx-a max-w-3xl md-py-20">
     {/* SECTION HEADER */}
     <div class="text-center mb-10">
       <h2 class="text-(3xl primary) mb-2 lg-text-4xl">Get In Touch</h2>
@@ -31,7 +32,26 @@ const input = cn(
         name="message"
         placeholder="Message"
         rows="5"></textarea>
+
+      <div class="flex-s-center">
+        <button
+          class="text-white bg-primary px py-3 inline-block br-md fw-semibold"
+          >Submit</button
+        >
+      </div>
     </form>
+  </div>
+
+  <div class="w-full abs z-0 top-0 left-0 h-full">
+    {/* LEFT BEANS */}
+    <div class="abs top-0 h-full left--40% lg-left--5%">
+      <img src={beans} alt="" class="h-full" />
+    </div>
+
+    {/* RIGHT BEANS */}
+    <div class="abs top-0 h-full rotate-x-180 right--40% lg-right--5%">
+      <img src={beans} alt="" class="h-full" />
+    </div>
   </div>
 </section>
 

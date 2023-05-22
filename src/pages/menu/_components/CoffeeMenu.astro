@@ -12,31 +12,33 @@ function splitArray<T>(arr: T[], n: number) {
 }
 ---
 
-<section class="relative z-1">
+<div class="h-40"></div>
+
+<section class="relative z-1 px-5 lg-px-8">
   <SectionLegend>Coffee Menu</SectionLegend>
 
   <div class="py max-w-7xl mx-a md-py-8">
-    <div id="coffee-menu" class="splide px-8">
+    <div id="coffee-menu" class="splide">
       <div class="splide__track">
-        <ul class="splide__list">
+        <ul class="splide__list font-poppins">
           {
             splitArray(menu, 4).map((list) => (
               <li class="splide__slide mb-20">
                 {list.map(({ img, name, desc, price }) => (
-                  <div class="flex-s-between gap-3 not-last-mb-5">
+                  <div class="flex-s-between gap-3 b-b-(1 #605D5D) pb not-last-mb-5">
                     {/* IMG WRAPPER */}
-                    <div class="square-70px bg-pink br-full overflow-hidden">
+                    <div class="square-60px bg-#191919 br-full overflow-hidden md-square-70px">
                       <img class="h-full" src={img} alt="" />
                     </div>
 
                     {/* ITEM DETAILS */}
-                    <div class="self-stretch flex-(1 s-between) gap-2 font-poppins">
+                    <div class="self-stretch flex-(1 s-between) gap-2">
                       {/* LEFT */}
                       <div class="h-full">
-                        <h3 class="text-(xl primary) mb-2 fw-semibold">
+                        <h3 class="text-primary mb-2 fw-semibold md-text-xl">
                           {name}
                         </h3>
-                        <p class="text-#938E8E">{desc}</p>
+                        <p class="text-(sm #938E8E) md-text-base">{desc}</p>
                       </div>
 
                       {/* RIGHT */}
@@ -54,26 +56,27 @@ function splitArray<T>(arr: T[], n: number) {
 </section>
 
 <script>
-  import "@splidejs/splide/css";
-  // or other themes
-  // import "@splidejs/splide/css/skyblue";
-  import "@splidejs/splide/css/sea-green";
-
-  // or only core styles
-  // import "@splidejs/splide/css/core";
-
   import Splide from "@splidejs/splide";
 
   new Splide("#coffee-menu", {
     mediaQuery: "min",
     perPage: 1,
     arrows: false,
+    gap: "40px",
     breakpoints: {
       1024: {
         perPage: 2,
-        gap: "40px",
         pagination: false,
+      },
+      1280: {
+        gap: "60px",
       },
     },
   }).mount();
 </script>
+
+<style>
+  .splide {
+    @apply px-0;
+  }
+</style>
