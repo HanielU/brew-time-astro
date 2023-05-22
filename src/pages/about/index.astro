@@ -1,6 +1,8 @@
 ---
 import AboutHero from "./_components/AboutHero.astro";
+import History from "./_components/History.astro";
 import Layout from "~/layouts/Layout.astro";
+import Team from "./_components/Team.astro";
 import { getGoogleLink } from "~/utils";
 ---
 
@@ -9,4 +11,6 @@ import { getGoogleLink } from "~/utils";
   bannerUrl={getGoogleLink("1dUfMEU7xRLS6OwvbBGDgAMglsN08EA-C")}
 >
   <AboutHero />
+  <History />
+  <Team />
 </Layout>

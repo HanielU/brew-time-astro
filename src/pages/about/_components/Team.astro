@@ -1,0 +1,77 @@
+---
+const hanielSocials = [
+  { icon: "i-mdi-twitter", link: "https://twitter.com/hypersonic_dev" },
+  { icon: "i-mdi-facebook", link: "https://facebook.com/hyprsonic.dev/" },
+  { icon: "i-mdi-linkedin", link: "https://read.cv/hypersonic_dev" },
+  { icon: "i-mdi-telegram", link: "https://ng.linkedin.com/in/hanielu" },
+];
+
+const team = [
+  {
+    img: "",
+    name: "Lisa Clarc",
+    role: "UI/UX Designer",
+    bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need.",
+    socials: hanielSocials,
+  },
+  {
+    img: "",
+    name: "Olivia Manson",
+    role: "Manager",
+    bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need.",
+    socials: hanielSocials,
+  },
+  {
+    img: "",
+    name: "Andrew Drue",
+    role: "Project Designer",
+    bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need.",
+    socials: hanielSocials,
+  },
+  {
+    img: "",
+    name: "Morgan John",
+    role: "CEO",
+    bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need.",
+    socials: hanielSocials,
+  },
+];
+---
+
+<section>
+  <div>
+    {/* SECTION HEADER */}
+    <div>
+      <h1>The Core of Our Team</h1>
+      <p>
+        Organically grow the holistic world view of disruptive innovation via
+        workplace diversity and empowerment of people and great talent that
+        truly rocks.
+      </p>
+    </div>
+
+    {/* TEAM MEMBERS */}
+    <div class="font-inter">
+      {
+        team.map(({ img, name, role, bio, socials }) => (
+          <div>
+            <img src={img} alt={name} />
+            <h3>{name}</h3>
+            <p>{role}</p>
+            <p>{bio}</p>
+
+            <div>
+              {socials.map(({ icon, link }) => (
+                <a
+                  class:list={[icon, "inline-block"]}
+                  target="_blank"
+                  href={link}
+                />
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
