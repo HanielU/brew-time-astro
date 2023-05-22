@@ -1,6 +1,7 @@
 ---
 import SectionLegend from "~/components/SectionLegend.astro";
 import PastryCard from "./PastryCard.astro";
+import bg from "~/assets/images/menu/pastries-bg.png";
 import pastry1 from "~/assets/images/menu/pastry1.jpg";
 import pastry2 from "~/assets/images/menu/pastry2.jpg";
 import pastry3 from "~/assets/images/menu/pastry3.jpg";
@@ -34,7 +35,13 @@ const pastries = [
 ];
 ---
 
-<div class="h-40"></div>
+<div class="h-30 relative z-0 md-h-40">
+  <div
+    class="abs bottom-65% left-0 w-full sm-bottom-45% md-bottom-0 lg-bottom--20% xl-bottom--50%"
+  >
+    <img class="w-full" src={bg} alt="" />
+  </div>
+</div>
 
 <SectionLegend>Pastries</SectionLegend>
 
