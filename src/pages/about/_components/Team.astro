@@ -16,28 +16,28 @@ const team = [
     img: img1,
     name: "Lisa Clarc",
     role: "UI/UX Designer",
-    bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need.",
+    bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need, bothin personal and professional matters.",
     socials: hanielSocials,
   },
   {
     img: img2,
     name: "Olivia Manson",
     role: "Manager",
-    bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need.",
+    bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need, bothin personal and professional matters.",
     socials: hanielSocials,
   },
   {
     img: img3,
     name: "Andrew Drue",
     role: "Project Designer",
-    bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need.",
+    bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need, bothin personal and professional matters.",
     socials: hanielSocials,
   },
   {
     img: img4,
     name: "Morgan John",
     role: "CEO",
-    bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need.",
+    bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need, bothin personal and professional matters.",
     socials: hanielSocials,
   },
 ];
@@ -56,7 +56,7 @@ const team = [
     </div>
 
     {/* TEAM MEMBERS */}
-    <div class="font-inter md-grid grid-cols-2 gap-8">
+    <div class="font-inter sm-grid grid-cols-2 gap-8">
       {
         team.map(({ img, name, role, bio, socials }) => (
           <div class="not-last-(mb-8 md-mb-0) md-flex-s-start">
@@ -75,7 +75,7 @@ const team = [
 
               <p class="text-primary fw-light mb-3">{role}</p>
 
-              <p class="fw-light mb-3 max-w-28ch">{bio}</p>
+              <p class="fw-light mb-3 max-w-34ch md-max-w-28ch">{bio}</p>
 
               <div class="flex-s-start gap-4 text-lg">
                 {socials.map(({ icon, link }) => (
