@@ -1,30 +1,30 @@
 ---
 export interface Props {
-  img: string;
-  title: string;
-  description: string;
-  price: string;
+	img: string;
+	title: string;
+	description: string;
+	price: string;
 }
 
 const { img, title, description, price } = Astro.props;
 ---
 
 <div
-  class="@max-md-[.is-active>&]-bg-dark hover-bg-dark font-poppins p-6 br-xl"
+	class="@max-md-[.is-active>&]-bg-dark hover-bg-dark font-poppins p-6 br-xl"
 >
-  {/* IMAGE WRAPPER */}
-  <div class="h-200px flex-s-center lg-h-250px xl-h-280px">
-    <img class="h-full" src={img} alt="" />
-  </div>
+	{/* IMAGE WRAPPER */}
+	<div class="h-200px flex-s-center lg-h-250px xl-h-280px">
+		<img class="h-full" src={img} alt="" />
+	</div>
 
-  {/* TEXT WRAPPER */}
-  <div class="text-center">
-    <h3 class="text-(xl primary) fw-semibold">{title}</h3>
-    <p
-      class="text-(sm #938E8E) fw-normal max-w-26ch mx-a my-2 lg-(text-base my)"
-    >
-      {description}
-    </p>
-    <p class="fw-medium lg-text-xl">${parseFloat(price)}</p>
-  </div>
+	{/* TEXT WRAPPER */}
+	<div class="text-center">
+		<h3 class="text-(xl primary) fw-semibold">{title}</h3>
+		<p
+			class="text-(sm #938E8E) fw-normal max-w-26ch mx-a my-2 lg-(text-base my)"
+		>
+			{description}
+		</p>
+		<p class="fw-medium lg-text-xl">${parseFloat(price)}</p>
+	</div>
 </div>

@@ -8,84 +8,84 @@ import pastry3 from "~/assets/images/menu/pastry3.jpg";
 import pastry4 from "~/assets/images/menu/pastry4.jpg";
 
 const pastries = [
-  {
-    img: pastry1,
-    name: "Croissants",
-    desc: "Lorem ipsum dolor sit amet, margin and padding",
-    price: 10,
-  },
-  {
-    img: pastry2,
-    name: "Cup cakes",
-    desc: "Lorem ipsum dolor sit amet, margin and padding",
-    price: 10,
-  },
-  {
-    img: pastry3,
-    name: "Meat pie",
-    desc: "Lorem ipsum dolor sit amet, margin and padding",
-    price: 10,
-  },
-  {
-    img: pastry4,
-    name: "Macrons",
-    desc: "Lorem ipsum dolor sit amet, margin and padding",
-    price: 10,
-  },
+	{
+		img: pastry1,
+		name: "Croissants",
+		desc: "Lorem ipsum dolor sit amet, margin and padding",
+		price: 10,
+	},
+	{
+		img: pastry2,
+		name: "Cup cakes",
+		desc: "Lorem ipsum dolor sit amet, margin and padding",
+		price: 10,
+	},
+	{
+		img: pastry3,
+		name: "Meat pie",
+		desc: "Lorem ipsum dolor sit amet, margin and padding",
+		price: 10,
+	},
+	{
+		img: pastry4,
+		name: "Macrons",
+		desc: "Lorem ipsum dolor sit amet, margin and padding",
+		price: 10,
+	},
 ];
 ---
 
 <div class="h-30 relative z-0 md-h-40">
-  <div
-    class="abs bottom-65% left-0 w-full sm-bottom-45% md-bottom-0 lg-bottom--20% xl-bottom--50%"
-  >
-    <img class="w-full" src={bg} alt="" />
-  </div>
+	<div
+		class="abs bottom-65% left-0 w-full sm-bottom-45% md-bottom-0 lg-bottom--20% xl-bottom--50%"
+	>
+		<img class="w-full" src={bg} alt="" />
+	</div>
 </div>
 
 <SectionLegend>Pastries</SectionLegend>
 
 <section class="relative">
-  {/* SECTION CONTENT */}
-  <div class="py-12">
-    <div id="pastries" class="splide">
-      <div class="splide__track">
-        <ul class="splide__list font-poppins">
-          {
-            pastries.map(({ img, name, desc, price }) => (
-              <li class="splide__slide">
-                <PastryCard {img} {name} {desc} {price} />
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </div>
-  </div>
+	{/* SECTION CONTENT */}
+	<div class="py-12">
+		<div id="pastries" class="splide">
+			<div class="splide__track">
+				<ul class="splide__list font-poppins">
+					{
+						pastries.map(({ img, name, desc, price }) => (
+							<li class="splide__slide">
+								<PastryCard {img} {name} {desc} {price} />
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</div>
 </section>
 
 <script>
-  import "@splidejs/splide/css";
-  import "@splidejs/splide/css/sea-green";
-  import Splide from "@splidejs/splide";
+	import "@splidejs/splide/css";
+	import "@splidejs/splide/css/sea-green";
+	import Splide from "@splidejs/splide";
 
-  new Splide("#pastries", {
-    mediaQuery: "min",
-    perPage: 1,
-    arrows: false,
-    gap: "20px",
-    breakpoints: {
-      768: {
-        perPage: 2,
-      },
-      1024: {
-        gap: "40px",
-      },
-      1280: {
-        perPage: 4,
-        drag: false,
-        pagination: false,
-      },
-    },
-  }).mount();
+	new Splide("#pastries", {
+		mediaQuery: "min",
+		perPage: 1,
+		arrows: false,
+		gap: "20px",
+		breakpoints: {
+			768: {
+				perPage: 2,
+			},
+			1024: {
+				gap: "40px",
+			},
+			1280: {
+				perPage: 4,
+				drag: false,
+				pagination: false,
+			},
+		},
+	}).mount();
 </script>

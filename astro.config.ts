@@ -4,8 +4,11 @@ import unocss from "unocss/astro";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    unocss({ injectReset: true }),
-    // svelte(),
-  ],
+	site: "https://brewtime.hyprsonic.dev",
+	integrations: [
+		unocss({
+			injectReset: true,
+		}),
+		// svelte()
+	],
 });

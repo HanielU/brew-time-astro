@@ -1,75 +1,75 @@
 ---
 const faq = [
-  {
-    icon: "i-ep-coffee-cup",
-    question: "Our Coffee",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ",
-  },
-  {
-    icon: "i-circum-coffee-bean",
-    question: "Our Beans",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ",
-  },
-  {
-    icon: "i-emojione-monotone-croissant",
-    question: "Pastries",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ",
-  },
-  {
-    icon: "i-ep-coffee",
-    question: "Pre-Order",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ",
-  },
+	{
+		icon: "i-ep-coffee-cup",
+		question: "Our Coffee",
+		desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ",
+	},
+	{
+		icon: "i-circum-coffee-bean",
+		question: "Our Beans",
+		desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ",
+	},
+	{
+		icon: "i-emojione-monotone-croissant",
+		question: "Pastries",
+		desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ",
+	},
+	{
+		icon: "i-ep-coffee",
+		question: "Pre-Order",
+		desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ",
+	},
 ];
 ---
 
 <section class="px-5 lg-px-8">
-  <div class="py-20 max-w-7xl mx-a lg-mb-10">
-    {/* SECTION HEADER */}
-    <div class="text-center mb-16">
-      <h2 class="text-(3xl primary) mb-2 lg-text-4xl">
-        Frequently Asked Questions
-      </h2>
-      <p class="font-(inter light) text-15px/1.5rem max-w-65ch mx-a lg-text-lg">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s,
-      </p>
-    </div>
+	<div class="py-20 max-w-7xl mx-a lg-mb-10">
+		{/* SECTION HEADER */}
+		<div class="text-center mb-16">
+			<h2 class="text-(3xl primary) mb-2 lg-text-4xl">
+				Frequently Asked Questions
+			</h2>
+			<p class="font-(inter light) text-15px/1.5rem max-w-65ch mx-a lg-text-lg">
+				Lorem Ipsum is simply dummy text of the printing and typesetting
+				industry. Lorem Ipsum has been the industry's standard dummy text ever
+				since the 1500s,
+			</p>
+		</div>
 
-    <div class="px-8 mb-16 flex-s-between flex-wrap gap-x-5 gap-y-8">
-      {
-        faq.map(({ icon, question, desc }) => (
-          <div class="not-last-(mb-10 md-mb-0 lg-(b-r-(1 white) pr-5)) flex-1 basis-250px max-w-max">
-            <div class="flex-s-start gap-2 text-4xl">
-              <div class:list={[icon, "text-primary"]} />
-              <span>{question}</span>
-            </div>
+		<div class="px-8 mb-16 flex-s-between flex-wrap gap-x-5 gap-y-8">
+			{
+				faq.map(({ icon, question, desc }) => (
+					<div class="not-last-(mb-10 md-mb-0 lg-(b-r-(1 white) pr-5)) flex-1 basis-250px max-w-max">
+						<div class="flex-s-start gap-2 text-4xl">
+							<div class:list={[icon, "text-primary"]} />
+							<span>{question}</span>
+						</div>
 
-            <p class="font-(inter light) my-2 max-w-26ch">{desc}</p>
+						<p class="font-(inter light) my-2 max-w-26ch">{desc}</p>
 
-            <div class="font-(inter semibold) flex-s-start gap-2 text-primary">
-              See all
-              <div class="i-tabler-external-link" />
-            </div>
-          </div>
-        ))
-      }
-    </div>
+						<div class="font-(inter semibold) flex-s-start gap-2 text-primary">
+							See all
+							<div class="i-tabler-external-link" />
+						</div>
+					</div>
+				))
+			}
+		</div>
 
-    {
-      /* Apparently, text-center is used to center 
+		{
+			/* Apparently, text-center is used to center 
       inline-level elements horizontally */
-    }
-    <div class="text-center">
-      {/* CTA */}
-      <a
-        class:list={[
-          "bg-primary text-(sm light) font-(inter semibold)",
-          "br-lg py-2 px-6 md-text-base",
-        ]}
-        href="/">Order Now</a
-      >
-    </div>
-  </div>
+		}
+		<div class="text-center">
+			{/* CTA */}
+			<a
+				class:list={[
+					"bg-primary text-(sm light) font-(inter semibold)",
+					"br-lg py-2 px-6 md-text-base",
+				]}
+				href="/">Order Now</a
+			>
+		</div>
+	</div>
 </section>

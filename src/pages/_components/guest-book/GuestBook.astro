@@ -6,73 +6,73 @@ import guest2 from "~/assets/images/landing/guest2.png";
 import guest3 from "~/assets/images/landing/guest3.png";
 
 const message =
-  "Lorem ipsum dolor sit amet, ssfsf consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.";
+	"Lorem ipsum dolor sit amet, ssfsf consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.";
 
 const data = [
-  {
-    name: "Kim Lee Jon",
-    job: "Artist",
-    avatar: guest1,
-    message,
-  },
-  {
-    name: "Darel McLovin",
-    job: "Driver",
-    avatar: guest2,
-    message,
-  },
-  {
-    name: "Alexa Blair",
-    job: "Dancer",
-    avatar: guest3,
-    message,
-  },
+	{
+		name: "Kim Lee Jon",
+		job: "Artist",
+		avatar: guest1,
+		message,
+	},
+	{
+		name: "Darel McLovin",
+		job: "Driver",
+		avatar: guest2,
+		message,
+	},
+	{
+		name: "Alexa Blair",
+		job: "Dancer",
+		avatar: guest3,
+		message,
+	},
 ];
 ---
 
 <section class="relative">
-  <SectionLegend>Our GuestBook</SectionLegend>
+	<SectionLegend>Our GuestBook</SectionLegend>
 
-  <div class="py max-w-7xl mx-a md-py-8">
-    <div id="guest-book" class="splide">
-      <div class="splide__track">
-        <ul class="splide__list items-center">
-          {
-            data.map((v) => (
-              <li class="splide__slide">
-                <GuestCard {...v} />
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </div>
-  </div>
+	<div class="py max-w-7xl mx-a md-py-8">
+		<div id="guest-book" class="splide">
+			<div class="splide__track">
+				<ul class="splide__list items-center">
+					{
+						data.map(v => (
+							<li class="splide__slide">
+								<GuestCard {...v} />
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</div>
 </section>
 
 <script>
-  import "./guest-book.css";
-  import Splide from "@splidejs/splide";
+	import "./guest-book.css";
+	import Splide from "@splidejs/splide";
 
-  new Splide("#guest-book", {
-    mediaQuery: "min",
-    perPage: 1,
-    autoplay: true,
-    type: "loop",
-    arrows: false,
-    interval: 3000,
-    breakpoints: {
-      768: {
-        perPage: 2,
-        gap: "20px",
-      },
-      1024: {
-        focus: "center",
-        perPage: 3,
-        gap: "40px",
-        // drag: false,
-        pagination: false,
-      },
-    },
-  }).mount();
+	new Splide("#guest-book", {
+		mediaQuery: "min",
+		perPage: 1,
+		autoplay: true,
+		type: "loop",
+		arrows: false,
+		interval: 3000,
+		breakpoints: {
+			768: {
+				perPage: 2,
+				gap: "20px",
+			},
+			1024: {
+				focus: "center",
+				perPage: 3,
+				gap: "40px",
+				// drag: false,
+				pagination: false,
+			},
+		},
+	}).mount();
 </script>

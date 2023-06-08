@@ -5,91 +5,91 @@ import img3 from "~/assets/images/about/team3.png";
 import img4 from "~/assets/images/about/team4.png";
 
 const hanielSocials = [
-  { icon: "i-mdi-twitter", link: "https://twitter.com/hypersonic_dev" },
-  { icon: "i-mdi-facebook", link: "https://facebook.com/hyprsonic.dev/" },
-  { icon: "i-mdi-linkedin", link: "https://read.cv/hypersonic_dev" },
-  { icon: "i-mdi-telegram", link: "https://ng.linkedin.com/in/hanielu" },
+	{ icon: "i-mdi-twitter", link: "https://twitter.com/hypersonic_dev" },
+	{ icon: "i-mdi-facebook", link: "https://facebook.com/hyprsonic.dev/" },
+	{ icon: "i-mdi-linkedin", link: "https://read.cv/hypersonic_dev" },
+	{ icon: "i-mdi-telegram", link: "https://ng.linkedin.com/in/hanielu" },
 ];
 
 const team = [
-  {
-    img: img1,
-    name: "Lisa Clarc",
-    role: "UI/UX Designer",
-    bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need, bothin personal and professional matters.",
-    socials: hanielSocials,
-  },
-  {
-    img: img2,
-    name: "Olivia Manson",
-    role: "Manager",
-    bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need, bothin personal and professional matters.",
-    socials: hanielSocials,
-  },
-  {
-    img: img3,
-    name: "Andrew Drue",
-    role: "Project Designer",
-    bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need, bothin personal and professional matters.",
-    socials: hanielSocials,
-  },
-  {
-    img: img4,
-    name: "Morgan John",
-    role: "CEO",
-    bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need, bothin personal and professional matters.",
-    socials: hanielSocials,
-  },
+	{
+		img: img1,
+		name: "Lisa Clarc",
+		role: "UI/UX Designer",
+		bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need, bothin personal and professional matters.",
+		socials: hanielSocials,
+	},
+	{
+		img: img2,
+		name: "Olivia Manson",
+		role: "Manager",
+		bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need, bothin personal and professional matters.",
+		socials: hanielSocials,
+	},
+	{
+		img: img3,
+		name: "Andrew Drue",
+		role: "Project Designer",
+		bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need, bothin personal and professional matters.",
+		socials: hanielSocials,
+	},
+	{
+		img: img4,
+		name: "Morgan John",
+		role: "CEO",
+		bio: "An ambitious and exquisite personality that always strives to exceed expectations. Always there when someone is in need, bothin personal and professional matters.",
+		socials: hanielSocials,
+	},
 ];
 ---
 
 <section class="px-5 lg-px-8">
-  <div class="py-20 max-w-7xl mx-a">
-    {/* SECTION HEADER */}
-    <div class="text-center mb-16">
-      <h1 class="text-(3xl primary) mb-2 lg-text-4xl">The Core of Our Team</h1>
-      <p class="font-(inter light) text-15px/1.5rem max-w-65ch mx-a lg-text-lg">
-        Organically grow the holistic world view of disruptive innovation via
-        workplace diversity and empowerment of people and great talent that
-        truly rocks.
-      </p>
-    </div>
+	<div class="py-20 max-w-7xl mx-a">
+		{/* SECTION HEADER */}
+		<div class="text-center mb-16">
+			<h1 class="text-(3xl primary) mb-2 lg-text-4xl">The Core of Our Team</h1>
+			<p class="font-(inter light) text-15px/1.5rem max-w-65ch mx-a lg-text-lg">
+				Organically grow the holistic world view of disruptive innovation via
+				workplace diversity and empowerment of people and great talent that
+				truly rocks.
+			</p>
+		</div>
 
-    {/* TEAM MEMBERS */}
-    <div class="font-inter sm-grid grid-cols-2 gap-8">
-      {
-        team.map(({ img, name, role, bio, socials }) => (
-          <div class="not-last-(mb-8 md-mb-0) md-flex-s-start">
-            {/* LEFT SIDE | IMAGE WRAPPER */}
-            <div class="h-250px bg-gray mb-4 overflow-hidden br-md flex-[0.5] md-mb-0">
-              <img
-                class="square-full object-(cover center)"
-                src={img}
-                alt={name}
-              />
-            </div>
+		{/* TEAM MEMBERS */}
+		<div class="font-inter sm-grid grid-cols-2 gap-8">
+			{
+				team.map(({ img, name, role, bio, socials }) => (
+					<div class="not-last-(mb-8 md-mb-0) md-flex-s-start">
+						{/* LEFT SIDE | IMAGE WRAPPER */}
+						<div class="h-250px bg-gray mb-4 overflow-hidden br-md flex-[0.5] md-mb-0">
+							<img
+								class="square-full object-(cover center)"
+								src={img}
+								alt={name}
+							/>
+						</div>
 
-            {/* RIGHT SIDE */}
-            <div class="flex-[0.6] md-pl-6">
-              <h3 class="text-xl fw-medium md-text-2xl">{name}</h3>
+						{/* RIGHT SIDE */}
+						<div class="flex-[0.6] md-pl-6">
+							<h3 class="text-xl fw-medium md-text-2xl">{name}</h3>
 
-              <p class="text-primary fw-light mb-3">{role}</p>
+							<p class="text-primary fw-light mb-3">{role}</p>
 
-              <p class="fw-light mb-3 max-w-34ch md-max-w-28ch">{bio}</p>
+							<p class="fw-light mb-3 max-w-34ch md-max-w-28ch">{bio}</p>
 
-              <div class="flex-s-start gap-4 text-lg">
-                {socials.map(({ icon, link }) => (
-                  <a
-                    class:list={[icon, "inline-block"]}
-                    target="_blank"
-                    href={link}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        ))
-      }
-    </div>
-  </div>
+							<div class="flex-s-start gap-4 text-lg">
+								{socials.map(({ icon, link }) => (
+									<a
+										class:list={[icon, "inline-block"]}
+										target="_blank"
+										href={link}
+									/>
+								))}
+							</div>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
 </section>

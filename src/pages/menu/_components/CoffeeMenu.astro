@@ -4,79 +4,79 @@ import menu from "./menu";
 
 // given an array, split it into chunks of size n
 function splitArray<T>(arr: T[], n: number) {
-  let res = [];
-  for (let i = 0; i < arr.length; i += n) {
-    res.push(arr.slice(i, i + n));
-  }
-  return res;
+	let res = [];
+	for (let i = 0; i < arr.length; i += n) {
+		res.push(arr.slice(i, i + n));
+	}
+	return res;
 }
 ---
 
 <div class="h-40"></div>
 
 <section class="relative z-1 px-5 lg-px-8">
-  <SectionLegend>Coffee Menu</SectionLegend>
+	<SectionLegend>Coffee Menu</SectionLegend>
 
-  <div class="py max-w-7xl mx-a md-py-8">
-    <div id="coffee-menu" class="splide">
-      <div class="splide__track">
-        <ul class="splide__list font-poppins">
-          {
-            splitArray(menu, 4).map((list) => (
-              <li class="splide__slide mb-20">
-                {list.map(({ img, name, desc, price }) => (
-                  <div class="flex-s-between gap-3 b-b-(1 #605D5D) pb not-last-mb-5">
-                    {/* IMG WRAPPER */}
-                    <div class="square-60px bg-#191919 br-full overflow-hidden md-square-70px">
-                      <img class="h-full" src={img} alt="" />
-                    </div>
+	<div class="py max-w-7xl mx-a md-py-8">
+		<div id="coffee-menu" class="splide">
+			<div class="splide__track">
+				<ul class="splide__list font-poppins">
+					{
+						splitArray(menu, 4).map(list => (
+							<li class="splide__slide mb-20">
+								{list.map(({ img, name, desc, price }) => (
+									<div class="flex-s-between gap-3 b-b-(1 #605D5D) pb not-last-mb-5">
+										{/* IMG WRAPPER */}
+										<div class="square-60px bg-#191919 br-full overflow-hidden md-square-70px">
+											<img class="h-full" src={img} alt="" />
+										</div>
 
-                    {/* ITEM DETAILS */}
-                    <div class="self-stretch flex-(1 s-between) gap-2">
-                      {/* LEFT */}
-                      <div class="h-full">
-                        <h3 class="text-primary mb-2 fw-semibold md-text-xl">
-                          {name}
-                        </h3>
-                        <p class="text-(sm #938E8E) md-text-base">{desc}</p>
-                      </div>
+										{/* ITEM DETAILS */}
+										<div class="self-stretch flex-(1 s-between) gap-2">
+											{/* LEFT */}
+											<div class="h-full">
+												<h3 class="text-primary mb-2 fw-semibold md-text-xl">
+													{name}
+												</h3>
+												<p class="text-(sm #938E8E) md-text-base">{desc}</p>
+											</div>
 
-                      {/* RIGHT */}
-                      <span class="fw-bold text-lg">${price}.00</span>
-                    </div>
-                  </div>
-                ))}
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </div>
-  </div>
+											{/* RIGHT */}
+											<span class="fw-bold text-lg">${price}.00</span>
+										</div>
+									</div>
+								))}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</div>
 </section>
 
 <script>
-  import Splide from "@splidejs/splide";
+	import Splide from "@splidejs/splide";
 
-  new Splide("#coffee-menu", {
-    mediaQuery: "min",
-    perPage: 1,
-    arrows: false,
-    gap: "40px",
-    breakpoints: {
-      1024: {
-        perPage: 2,
-        pagination: false,
-      },
-      1280: {
-        gap: "60px",
-      },
-    },
-  }).mount();
+	new Splide("#coffee-menu", {
+		mediaQuery: "min",
+		perPage: 1,
+		arrows: false,
+		gap: "40px",
+		breakpoints: {
+			1024: {
+				perPage: 2,
+				pagination: false,
+			},
+			1280: {
+				gap: "60px",
+			},
+		},
+	}).mount();
 </script>
 
 <style>
-  .splide {
-    @apply px-0;
-  }
+	.splide {
+		@apply px-0;
+	}
 </style>

@@ -1,7 +1,7 @@
 .splide__slide {
-  @apply mb-20!;
+	@apply mb-20!;
 }
 
 .splide {
-  @apply px-8!;
+	@apply px-8!;
 }

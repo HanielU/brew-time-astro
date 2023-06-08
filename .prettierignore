@@ -1,12 +1,17 @@
 .DS_Store
 node_modules
-/build
-/dist
-/package
+build
+dist
+.svelte-kit
+package
 .env
 .env.*
 !.env.example
-/.yarn
+.yarn
+misc
+.netlify
+public
+$houdini
 
 # Ignore files for PNPM, NPM and YARN
 pnpm-lock.yaml

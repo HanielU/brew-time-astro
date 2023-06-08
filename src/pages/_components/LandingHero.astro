@@ -4,42 +4,42 @@ import HeroWrapper from "~/components/HeroWrapper.astro";
 ---
 
 <HeroWrapper withGrain={false} class="gradient" {heroBgImg}>
-  {/* MAIN TITLE */}
-  <h1
-    class="relative mb-10 text-5xl max-w-14ch mx-a sm-text-6xl md-(text-7xl max-w-18ch mb) lg-text-8xl"
-  >
-    <span class="fw-medium">Savor the moment with every sip</span>
+	{/* MAIN TITLE */}
+	<h1
+		class="relative mb-10 text-5xl max-w-14ch mx-a sm-text-6xl md-(text-7xl max-w-18ch mb) lg-text-8xl"
+	>
+		<span class="fw-medium">Savor the moment with every sip</span>
 
-    <div class="i-carbon-quotes abs top--10% left-0 text-2xl lg-text-4xl"></div>
-    <div
-      class="i-carbon-quotes abs bottom-0 right-0 rotate-180 text-2xl md-right-10% lg-text-4xl"
-    >
-    </div>
-  </h1>
+		<div class="i-carbon-quotes abs top--10% left-0 text-2xl lg-text-4xl"></div>
+		<div
+			class="i-carbon-quotes abs bottom-0 right-0 rotate-180 text-2xl md-right-10% lg-text-4xl"
+		>
+		</div>
+	</h1>
 
-  {/* SUBTITLE */}
-  <p
-    class="text-#938E8E max-w-26ch mx-a mb-6 font-(poppins medium) md-max-w-none lg-text-lg"
-  >
-    Discover our carefully crafted coffee blends, made with love and passion
-  </p>
+	{/* SUBTITLE */}
+	<p
+		class="text-#938E8E max-w-26ch mx-a mb-6 font-(poppins medium) md-max-w-none lg-text-lg"
+	>
+		Discover our carefully crafted coffee blends, made with love and passion
+	</p>
 
-  {/* CTA */}
-  <a
-    class="inline-block bg-primary text-(sm light) font-(inter semibold) br-lg py-2 px-6 md-text-base"
-    href="/">Order Now</a
-  >
+	{/* CTA */}
+	<a
+		class="inline-block bg-primary text-(sm light) font-(inter semibold) br-lg py-2 px-6 md-text-base"
+		href="/">Order Now</a
+	>
 </HeroWrapper>
 
 <style>
-  .gradient::after {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(16, 16, 17, 0.8) 60%,
-      rgba(16, 16, 17, 0.9) 70%,
-      rgba(16, 16, 17, 1) 100%
-    );
-  }
+	.gradient::after {
+		background: rgb(0, 0, 0);
+		background: linear-gradient(
+			180deg,
+			rgba(0, 0, 0, 0.5) 0%,
+			rgba(16, 16, 17, 0.8) 60%,
+			rgba(16, 16, 17, 0.9) 70%,
+			rgba(16, 16, 17, 1) 100%
+		);
+	}
 </style>

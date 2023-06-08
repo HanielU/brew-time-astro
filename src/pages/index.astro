@@ -16,42 +16,42 @@ import { getGoogleLink } from "~/utils";
 ---
 
 <Layout
-  title="Home | Brew Time"
-  bannerUrl={getGoogleLink("1dUfMEU7xRLS6OwvbBGDgAMglsN08EA-C")}
+	title="Home | Brew Time"
+	bannerUrl={getGoogleLink("1dUfMEU7xRLS6OwvbBGDgAMglsN08EA-C")}
 >
-  <Hero />
-  <HeroTransition />
+	<Hero />
+	<HeroTransition />
 
-  <CoffeeList
-    id="exclusive-coffee"
-    showCTA
-    legend="Exclusive Coffee"
-    data={[
-      {
-        img: coffee1,
-        title: "Americano",
-        description: "Lorem ipsum dolor sit amet, margin and padding. ",
-        price: "19.00",
-      },
-      {
-        img: coffee2,
-        title: "Americano",
-        description: "Lorem ipsum dolor sit amet, margin and padding. ",
-        price: "20.00",
-      },
-      {
-        img: coffee1,
-        title: "Americano",
-        description: "Lorem ipsum dolor sit amet, margin and padding. ",
-        price: "15.00",
-      },
-    ]}
-  />
+	<CoffeeList
+		id="exclusive-coffee"
+		showCTA
+		legend="Exclusive Coffee"
+		data={[
+			{
+				img: coffee1,
+				title: "Americano",
+				description: "Lorem ipsum dolor sit amet, margin and padding. ",
+				price: "19.00",
+			},
+			{
+				img: coffee2,
+				title: "Americano",
+				description: "Lorem ipsum dolor sit amet, margin and padding. ",
+				price: "20.00",
+			},
+			{
+				img: coffee1,
+				title: "Americano",
+				description: "Lorem ipsum dolor sit amet, margin and padding. ",
+				price: "15.00",
+			},
+		]}
+	/>
 
-  <CustomerStats />
-  <Partners />
-  <FAQ />
-  <GuestBook />
-  <Location />
-  <ContactForm />
+	<CustomerStats />
+	<Partners />
+	<FAQ />
+	<GuestBook />
+	<Location />
+	<ContactForm />
 </Layout>

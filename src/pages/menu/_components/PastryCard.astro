@@ -1,24 +1,24 @@
 ---
 export interface Props {
-  img: string;
-  name: string;
-  desc: string;
-  price: number;
+	img: string;
+	name: string;
+	desc: string;
+	price: number;
 }
 
 const { img, name, desc, price } = Astro.props;
 ---
 
 <div>
-  {/* PASTRY IMAGE */}
-  <div class="h-250px bg-#191919">
-    <img class="square-full object-(cover center)" src={img} alt="" />
-  </div>
+	{/* PASTRY IMAGE */}
+	<div class="h-250px bg-#191919">
+		<img class="square-full object-(cover center)" src={img} alt="" />
+	</div>
 
-  {/* PASTRY DETAILS */}
-  <div class="text-center p-5">
-    <h3 class="text-(xl primary) fw-semibold">{name}</h3>
-    <p class="my-5 text-#938E8E">{desc}</p>
-    <p class="fw-bold text-xl">${price}.00</p>
-  </div>
+	{/* PASTRY DETAILS */}
+	<div class="text-center p-5">
+		<h3 class="text-(xl primary) fw-semibold">{name}</h3>
+		<p class="my-5 text-#938E8E">{desc}</p>
+		<p class="fw-bold text-xl">${price}.00</p>
+	</div>
 </div>

@@ -3,212 +3,212 @@ import NavSearch from "./NavSearch.astro";
 import logo from "~/assets/images/logo.png";
 
 const links = [
-  { name: "Menu", path: "/menu" },
-  { name: "About", path: "/about" },
-  { name: "Contact", path: "/contact" },
+	{ name: "Menu", path: "/menu" },
+	{ name: "About", path: "/about" },
+	{ name: "Contact", path: "/contact" },
 ];
 ---
 
 <script>
-  import { toggleClass as tc } from "~/utils";
+	import { toggleClass as tc } from "~/utils";
 
-  const header = document.querySelector<HTMLElement>("#nav-header")!;
-  const navBtns = document.querySelectorAll<HTMLButtonElement>(".nav-btn")!;
-  const navMenu = document.querySelector<HTMLDivElement>(".nav-menu")!;
-  const underheader = document.querySelector<HTMLDivElement>(".underheader")!;
-  const dummyDiv = document.querySelector<HTMLDivElement>("#header-dummy")!;
+	const header = document.querySelector<HTMLElement>("#nav-header")!;
+	const navBtns = document.querySelectorAll<HTMLButtonElement>(".nav-btn")!;
+	const navMenu = document.querySelector<HTMLDivElement>(".nav-menu")!;
+	const underheader = document.querySelector<HTMLDivElement>(".underheader")!;
+	const dummyDiv = document.querySelector<HTMLDivElement>("#header-dummy")!;
 
-  // Create a function which will be called when intersection changes
-  const callback: IntersectionObserverCallback = (entries) => {
-    entries.forEach((entry) => {
-      // When header is not intersecting with dummyDiv
-      // (i.e., has been scrolled out of view)
-      if (!entry.isIntersecting) {
-        // Add the blur class
-        underheader.classList.add("backdrop-blur");
-        header.classList.add("backdrop-blur", "b-b-white/20");
-        header.classList.remove("b-b-white/80");
-      } else {
-        // Remove the blur class
-        underheader.classList.remove("backdrop-blur");
-        header.classList.remove("backdrop-blur", "b-b-white/20");
-        header.classList.add("b-b-white/80");
-      }
-    });
-  };
+	// Create a function which will be called when intersection changes
+	const callback: IntersectionObserverCallback = entries => {
+		entries.forEach(entry => {
+			// When header is not intersecting with dummyDiv
+			// (i.e., has been scrolled out of view)
+			if (!entry.isIntersecting) {
+				// Add the blur class
+				underheader.classList.add("backdrop-blur");
+				header.classList.add("backdrop-blur", "b-b-white/20");
+				header.classList.remove("b-b-white/80");
+			} else {
+				// Remove the blur class
+				underheader.classList.remove("backdrop-blur");
+				header.classList.remove("backdrop-blur", "b-b-white/20");
+				header.classList.add("b-b-white/80");
+			}
+		});
+	};
 
-  // Set up the Intersection Observer
-  const observer = new IntersectionObserver(callback);
+	// Set up the Intersection Observer
+	const observer = new IntersectionObserver(callback);
 
-  // Start observing the dummyDiv
-  observer.observe(dummyDiv);
+	// Start observing the dummyDiv
+	observer.observe(dummyDiv);
 
-  navBtns.forEach((btn) =>
-    btn.addEventListener("click", () => {
-      tc(navMenu, "op-0 pointer-events-none");
-      tc(document.body, "overflow-hidden");
-    })
-  );
+	navBtns.forEach(btn =>
+		btn.addEventListener("click", () => {
+			tc(navMenu, "op-0 pointer-events-none");
+			tc(document.body, "overflow-hidden");
+		})
+	);
 </script>
 
 <div id="header-dummy" class="w-full abs top-0" style="height: 1px;"></div>
 <header class="fixed top-0 left-0 z-99 w-full">
-  <div
-    id="nav-header"
-    class="bg-transparent pt px-5 mb-3 transition-250 b-b-(1 white/40) md-(pt-8 px-8)"
-  >
-    <div class="nav max-w-7xl mx-a flex-s-between pb">
-      {/* IMAGE WRAPPER */}
-      <a href="/" class="block h-40px md-mr-20 lg-mr-50">
-        <img class="h-full" src={logo} alt="" />
-      </a>
+	<div
+		id="nav-header"
+		class="bg-transparent pt px-5 mb-3 transition-250 b-b-(1 white/40) md-(pt-8 px-8)"
+	>
+		<div class="nav max-w-7xl mx-a flex-s-between pb">
+			{/* IMAGE WRAPPER */}
+			<a href="/" class="block h-40px md-mr-20 lg-mr-50">
+				<img class="h-full" src={logo} alt="" />
+			</a>
 
-      <div class="hidden md-flex-(1 s-between)">
-        <NavSearch />
+			<div class="hidden md-flex-(1 s-between)">
+				<NavSearch />
 
-        <div class="flex-s-center gap-4 font-inter">
-          <div class="square-40px bg-#1E1E1E6B flex-s-center br-full relative">
-            <div class="i-mingcute-shopping-cart-1-line"></div>
-            <span
-              class="abs top--20% right--10% bg-primary square-16px flex-s-center br-full text-xs"
-              >3</span
-            >
-          </div>
-          <div class="square-40px bg-#1E1E1E6B flex-s-center br-full relative">
-            <a
-              href="https://github.com/HanielU/brew-time-astro"
-              target="_blank"
-              class="i-codicon-github"></a>
-          </div>
-          <div class="square-40px bg-#1E1E1E6B flex-s-center br-full relative">
-            <div class="i-material-symbols-favorite-outline"></div>
-            <span
-              class="abs top--20% right--10% bg-primary square-16px flex-s-center br-full text-xs"
-              >3</span
-            >
-          </div>
-        </div>
-      </div>
+				<div class="flex-s-center gap-4 font-inter">
+					<div class="square-40px bg-#1E1E1E6B flex-s-center br-full relative">
+						<div class="i-mingcute-shopping-cart-1-line"></div>
+						<span
+							class="abs top--20% right--10% bg-primary square-16px flex-s-center br-full text-xs"
+							>3</span
+						>
+					</div>
+					<div class="square-40px bg-#1E1E1E6B flex-s-center br-full relative">
+						<a
+							href="https://github.com/HanielU/brew-time-astro"
+							target="_blank"
+							class="i-codicon-github"></a>
+					</div>
+					<div class="square-40px bg-#1E1E1E6B flex-s-center br-full relative">
+						<div class="i-material-symbols-favorite-outline"></div>
+						<span
+							class="abs top--20% right--10% bg-primary square-16px flex-s-center br-full text-xs"
+							>3</span
+						>
+					</div>
+				</div>
+			</div>
 
-      {/* MOBILE MENU BTN */}
-      <button class="nav-btn md:hidden">
-        <div class="text-xl i-solar-hamburger-menu-linear"></div>
-      </button>
-    </div>
-  </div>
+			{/* MOBILE MENU BTN */}
+			<button class="nav-btn md:hidden">
+				<div class="text-xl i-solar-hamburger-menu-linear"></div>
+			</button>
+		</div>
+	</div>
 
-  <div class="px-1 md-px">
-    <div class="mx-a max-w-[calc(80rem+32px)]">
-      <nav
-        class:list={[
-          "underheader px-4 br-lg hidden font-(inter semibold)",
-          "gap-8 max-w-7xl mx-a md-(flex-s-start inline-flex)",
-        ]}
-      >
-        {
-          links.map((link) => (
-            // NAV LINK
-            <a
-              class:list={[
-                "py-2 hover-underline relative",
-                // https://docs.astro.build/en/reference/configuration-reference/#effect-on-astrourl
-                Astro.url.pathname === link.path + "/" && [
-                  "after-(content-empty h-3px bg-primary abs bottom-4px left-0 w-full)",
-                  "px-2px",
-                ],
-              ]}
-              href={link.path}
-            >
-              {link.name}
-            </a>
-          ))
-        }
-      </nav>
-    </div>
-  </div>
+	<div class="px-1 md-px">
+		<div class="mx-a max-w-[calc(80rem+32px)]">
+			<nav
+				class:list={[
+					"underheader px-4 br-lg hidden font-(inter semibold)",
+					"gap-8 max-w-7xl mx-a md-(flex-s-start inline-flex)",
+				]}
+			>
+				{
+					links.map(link => (
+						// NAV LINK
+						<a
+							class:list={[
+								"py-2 hover-underline relative",
+								// https://docs.astro.build/en/reference/configuration-reference/#effect-on-astrourl
+								Astro.url.pathname === link.path + "/" && [
+									"after-(content-empty h-3px bg-primary abs bottom-4px left-0 w-full)",
+									"px-2px",
+								],
+							]}
+							href={link.path}
+						>
+							{link.name}
+						</a>
+					))
+				}
+			</nav>
+		</div>
+	</div>
 </header>
 
 {/* MOBILE NAV MENU */}
 <div
-  class:list={[
-    "fixed top-0 left-0 z-100 square-full backdrop-blur",
-    "gradient nav-menu op-0 pointer-events-none transition-opacity-250",
-  ]}
+	class:list={[
+		"fixed top-0 left-0 z-100 square-full backdrop-blur",
+		"gradient nav-menu op-0 pointer-events-none transition-opacity-250",
+	]}
 >
-  <div class="w-full h-full abs top-0 left-0 z-100 overflow-y-auto">
-    <div class="max-w-7xl mx-a">
-      <div class="flex-s-between pt pb-5 px-5">
-        <a href="/" class="block h-40px mr-20">
-          <img class="h-full" src={logo} alt="" />
-        </a>
+	<div class="w-full h-full abs top-0 left-0 z-100 overflow-y-auto">
+		<div class="max-w-7xl mx-a">
+			<div class="flex-s-between pt pb-5 px-5">
+				<a href="/" class="block h-40px mr-20">
+					<img class="h-full" src={logo} alt="" />
+				</a>
 
-        <button class="nav-btn">
-          <div class="text-xl i-radix-icons-cross-1"></div>
-        </button>
-      </div>
+				<button class="nav-btn">
+					<div class="text-xl i-radix-icons-cross-1"></div>
+				</button>
+			</div>
 
-      <nav class="font-inter">
-        <div class="flex-s-between flex-col gap-8">
-          {
-            links.map((link) => (
-              // NAV LINK
-              <a
-                class:list={[
-                  "py-2 hover-underline relative",
-                  Astro.url.pathname == link.path && [
-                    "after-(content-empty h-3px bg-primary abs bottom-4px left-0 w-full)",
-                    "px-2px",
-                  ],
-                ]}
-                href={link.path}
-              >
-                {link.name}
-              </a>
-            ))
-          }
+			<nav class="font-inter">
+				<div class="flex-s-between flex-col gap-8">
+					{
+						links.map(link => (
+							// NAV LINK
+							<a
+								class:list={[
+									"py-2 hover-underline relative",
+									Astro.url.pathname == link.path && [
+										"after-(content-empty h-3px bg-primary abs bottom-4px left-0 w-full)",
+										"px-2px",
+									],
+								]}
+								href={link.path}
+							>
+								{link.name}
+							</a>
+						))
+					}
 
-          <div class="flex-s-center gap-4 font-inter">
-            <div
-              class="square-40px bg-#1E1E1E6B flex-s-center br-full relative"
-            >
-              <div class="i-mingcute-shopping-cart-1-line"></div>
-              <span
-                class="abs top--20% right--10% bg-primary square-16px flex-s-center br-full text-xs"
-                >3</span
-              >
-            </div>
-            <div
-              class="square-40px bg-#1E1E1E6B flex-s-center br-full relative"
-            >
-              <a
-                href="https://github.com/HanielU/brew-time-astro"
-                target="_blank"
-                class="i-codicon-github"></a>
-            </div>
-            <div
-              class="square-40px bg-#1E1E1E6B flex-s-center br-full relative"
-            >
-              <div class="i-material-symbols-favorite-outline"></div>
-              <span
-                class="abs top--20% right--10% bg-primary square-16px flex-s-center br-full text-xs"
-                >3</span
-              >
-            </div>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </div>
+					<div class="flex-s-center gap-4 font-inter">
+						<div
+							class="square-40px bg-#1E1E1E6B flex-s-center br-full relative"
+						>
+							<div class="i-mingcute-shopping-cart-1-line"></div>
+							<span
+								class="abs top--20% right--10% bg-primary square-16px flex-s-center br-full text-xs"
+								>3</span
+							>
+						</div>
+						<div
+							class="square-40px bg-#1E1E1E6B flex-s-center br-full relative"
+						>
+							<a
+								href="https://github.com/HanielU/brew-time-astro"
+								target="_blank"
+								class="i-codicon-github"></a>
+						</div>
+						<div
+							class="square-40px bg-#1E1E1E6B flex-s-center br-full relative"
+						>
+							<div class="i-material-symbols-favorite-outline"></div>
+							<span
+								class="abs top--20% right--10% bg-primary square-16px flex-s-center br-full text-xs"
+								>3</span
+							>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</div>
 </div>
 
 <style>
-  .gradient {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(
-      180deg,
-      rgba(16, 16, 17, 0.8) 0%,
-      rgba(16, 16, 17, 0.7) 50%,
-      rgba(0, 0, 0, 0.6) 100%
-    );
-  }
+	.gradient {
+		background: rgb(0, 0, 0);
+		background: linear-gradient(
+			180deg,
+			rgba(16, 16, 17, 0.8) 0%,
+			rgba(16, 16, 17, 0.7) 50%,
+			rgba(0, 0, 0, 0.6) 100%
+		);
+	}
 </style>

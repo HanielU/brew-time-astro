@@ -1,10 +1,10 @@
 ---
 export interface Props {
-  /** The Legend of the section */
-  legend: string;
-  data: { img: string; title: string; description: string; price: string }[];
-  showCTA?: boolean;
-  id: string;
+	/** The Legend of the section */
+	legend: string;
+	data: { img: string; title: string; description: string; price: string }[];
+	showCTA?: boolean;
+	id: string;
 }
 
 const { legend, data, showCTA = false, id } = Astro.props;
@@ -16,97 +16,97 @@ import SectionLegend from "~/components/SectionLegend.astro";
 <astro-splide data-id={id}></astro-splide>
 
 <SectionLegend>
-  {legend}
+	{legend}
 </SectionLegend>
 
 <section class="bg-#191919 relative z-1">
-  {/* SECTION CONTENT */}
-  <div class="py-12">
-    <div id={id} class="splide">
-      <div class="splide__track">
-        <ul class="splide__list">
-          {
-            data.map(({ img, title, description, price }) => (
-              <li class="splide__slide">
-                <CoffeListCard {img} {title} {description} {price} />
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </div>
-  </div>
+	{/* SECTION CONTENT */}
+	<div class="py-12">
+		<div id={id} class="splide">
+			<div class="splide__track">
+				<ul class="splide__list">
+					{
+						data.map(({ img, title, description, price }) => (
+							<li class="splide__slide">
+								<CoffeListCard {img} {title} {description} {price} />
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</div>
 
-  {/* SECTION CTA */}
-  <a
-    class:list={[
-      "abs left-50% bottom-0 translate-(x--50% y-50%)",
-      "bg-primary px-5 py-2 font-poppins br-lg",
-      showCTA ? "block" : "hidden",
-    ]}
-    href="/menu">Menu</a
-  >
+	{/* SECTION CTA */}
+	<a
+		class:list={[
+			"abs left-50% bottom-0 translate-(x--50% y-50%)",
+			"bg-primary px-5 py-2 font-poppins br-lg",
+			showCTA ? "block" : "hidden",
+		]}
+		href="/menu">Menu</a
+	>
 </section>
 
 <script>
-  let id = "";
-  class AstroSplide extends HTMLElement {
-    constructor() {
-      super();
+	let id = "";
+	class AstroSplide extends HTMLElement {
+		constructor() {
+			super();
 
-      // Read the id from the data attribute.
-      id = "#" + this.dataset.id!;
-    }
-  }
-  customElements.define("astro-splide", AstroSplide);
+			// Read the id from the data attribute.
+			id = "#" + this.dataset.id!;
+		}
+	}
+	customElements.define("astro-splide", AstroSplide);
 
-  import "@splidejs/splide/css";
-  import "@splidejs/splide/css/sea-green";
-  import Splide from "@splidejs/splide";
+	import "@splidejs/splide/css";
+	import "@splidejs/splide/css/sea-green";
+	import Splide from "@splidejs/splide";
 
-  new Splide(id, {
-    mediaQuery: "min",
-    perPage: 1,
-    arrows: false,
-    breakpoints: {
-      768: {
-        arrows: true,
-        perPage: 2,
-        gap: "20px",
-      },
-      1024: {
-        arrows: false,
-        perPage: 3,
-        gap: "40px",
-        drag: false,
-        pagination: false,
-      },
-    },
-  }).mount();
+	new Splide(id, {
+		mediaQuery: "min",
+		perPage: 1,
+		arrows: false,
+		breakpoints: {
+			768: {
+				arrows: true,
+				perPage: 2,
+				gap: "20px",
+			},
+			1024: {
+				arrows: false,
+				perPage: 3,
+				gap: "40px",
+				drag: false,
+				pagination: false,
+			},
+		},
+	}).mount();
 </script>
 
 <style>
-  .splide__list {
-    @apply max-w-7xl! lg-mx-a!;
-  }
+	.splide__list {
+		@apply max-w-7xl! lg-mx-a!;
+	}
 
-  .splide {
-    @apply px-6!;
-  }
+	.splide {
+		@apply px-6!;
+	}
 </style>
 
 <style is:global>
-  .splide__pagination__page.is-active {
-    background: rgb(211, 173, 127);
-    transform: none;
-  }
+	.splide__pagination__page.is-active {
+		background: rgb(211, 173, 127);
+		transform: none;
+	}
 
-  .splide__pagination__page {
-    background: #fff;
-    width: 45px;
-  }
+	.splide__pagination__page {
+		background: #fff;
+		width: 45px;
+	}
 
-  .splide__arrow svg {
-    fill: rgb(211, 173, 127);
-  }
+	.splide__arrow svg {
+		fill: rgb(211, 173, 127);
+	}
 </style>

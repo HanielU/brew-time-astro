@@ -1,7 +1,7 @@
 ---
 export interface Props {
-  title: string;
-  bannerUrl: string;
+	title: string;
+	bannerUrl: string;
 }
 const { bannerUrl, title } = Astro.props as Props;
 
@@ -11,30 +11,33 @@ import TheFooter from "~/components/navigation/TheFooter.astro";
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="author" content="Haniel Ubogu" />
-    <meta name="theme-color" content="#101011" />
-    <meta property="og:title" content={title} />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content={bannerUrl} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <div
-      id="app"
-      class="relative font-bebas text-white bg-dark overflow-x-hidden"
-    >
-      <TheNav />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="author" content="Haniel Ubogu" />
+		<meta name="theme-color" content="#101011" />
+		<meta property="og:title" content={title} />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content={bannerUrl} />
+		<title>{title}</title>
+		<script>
+			import "../scripts/router.js";
+		</script>
+	</head>
+	<body>
+		<div
+			id="app"
+			class="relative font-bebas text-white bg-dark overflow-x-hidden"
+		>
+			<TheNav />
 
-      <div class="relative">
-        <slot />
-      </div>
+			<div class="relative">
+				<slot />
+			</div>
 
-      <TheFooter />
-    </div>
-  </body>
+			<TheFooter />
+		</div>
+	</body>
 </html>
