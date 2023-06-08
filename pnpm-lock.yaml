@@ -3,7 +3,6 @@ lockfileVersion: 5.4
 specifiers:
   '@astrojs/prefetch': ^0.2.3
   '@astrojs/svelte': ^2.2.0
-  '@hotwired/turbo': ^7.3.0
   '@iconify/json': ^2.2.75
   '@splidejs/splide': ^4.1.4
   '@typescript-eslint/eslint-plugin': ^5.59.9
@@ -26,7 +25,6 @@ specifiers:
 
 dependencies:
   '@astrojs/prefetch': 0.2.3
-  '@hotwired/turbo': 7.3.0
   '@splidejs/splide': 4.1.4
   astro: 2.6.1
   clsx: 1.2.1
@@ -1780,11 +1778,6 @@ packages:
     resolution: {integrity: sha512-6SWlXpWU5AvId8Ac7zjzmIOqMOba/JWY8XZ4A7q7Gn1Vlfg/SFFIlrtHXt9nPn4op9ZPAkl91Jao+QQv3r/ukw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
-
-  /@hotwired/turbo/7.3.0:
-    resolution: {integrity: sha512-Dcu+NaSvHLT7EjrDrkEmH4qET2ZJZ5IcCWmNXxNQTBwlnE5tBZfN6WxZ842n5cHV52DH/AKNirbPBtcEXDLW4g==}
-    engines: {node: '>= 14'}
-    dev: false
 
   /@humanwhocodes/config-array/0.11.10:
     resolution: {integrity: sha512-KVVjQmNUepDVGXNuoRRdmmEjruj0KfiGSbS8LVc12LMsWDQzRXJ0qdhN8L8uUigKpfEHRhlaQFY0ib1tnUbNeQ==}
